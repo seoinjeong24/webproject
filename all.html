@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>1인 가구 식재료 관리</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f4f4f4; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    nav a.active {
+      background-color: #333;
+      color: #fff;
+    }
+
+    main {
+      padding: 3rem 2rem;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #333;
+      margin-top: -50px;
+     margin-bottom: 1rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);  /* 3열로 설정 */
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .about-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    /* About 페이지의 제목 h1 스타일 */
+    #about h1 {
+      font-size: 3rem; /* 글씨 크기를 4rem으로 설정 */
+      font-weight: bold;
+      color: #333;
+      margin-top: -50px; /* 위쪽 마진을 제거하여 위로 올림 */
+      margin-bottom: 1rem; /* 하단에 약간의 여백을 추가 */
+    }
+
+    #about p {
+      margin-top: 0; /* p 태그 위쪽 마진을 0으로 설정 */
+      margin-bottom: 1rem; /* p 태그 아래쪽에 약간의 여백 추가 */
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    /* 로그인 버튼은 왼쪽에, 그 아래 회원가입/피드백 버튼을 배치 */
+    .side-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
+
+    .side-buttons button {
+      background: #000;
+      color: #fff;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 500px; /* 버튼 크기 키움 */
+      
+    }
+
+    .side-buttons button:hover {
+      background-color: #444;
+    }
+
+    .side-buttons button span {
+      font-size: 1.5rem;
+      margin-left: 10px;
+    }
+
+    section { display: none; }
+    section.active { display: block; }
+
+    /* 프로필 영역 */
+    .profile-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .profile-info input {
+      border: none;
+      background: #f4f4f4;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      width: 250px;
+      border-radius: 8px;
+    }
+
+    .profile-info .welcome-message {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .profile-image {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .profile-buttons button {
+      padding: 1rem;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 200px;
+    }
+
+    .profile-buttons button:hover {
+      background-color: #444;
+    }
+    .mypage-button {
+  background: #e0e0e0;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.mypage-button:hover {
+  background: #d4d4d4;
+}
+
+.label-button {
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    border: none;
+    background-color: #eee;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .label-button.active {
+    background-color: #ccc;
+    font-weight: bold;
+  }
+  .item-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 1rem;
+  }
+  .item-card.checked {
+    background-color: #f0f0f0;
+    opacity: 0.7;
+  }
+
+  aside {
+      width: 220px;
+      background: #eee;
+      padding: 1rem;
+      display: none; /* 기본적으로 숨김 */
+    }
+
+    aside.active {
+      display: block;
+    }
+
+    aside h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .menu-item {
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .menu-item.active {
+      background: #ccc;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    /* ————————————— */
+/* Inventory 전용 스타일 */
+/* ————————————— */
+.inventory-section {
+  display: none;
+  flex: 1;
+  background: #fff;
+  overflow: auto;
+}
+.inventory-section.active { display:block; }
+
+/* 헤더: + 버튼, 제목, 검색창 */
+.inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* + 버튼 */
+.add-button {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* 제목 */
+.inventory-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* 검색창 래퍼 */
+.inventory-search-wrapper {
+  position: relative;
+}
+
+/* 검색 input */
+.inventory-search {
+  width: 18rem;
+  padding: 0.5rem 1rem;
+  padding-right: 2.5rem;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* 돋보기 아이콘 */
+.inventory-search-wrapper .search-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: #888;
+}
+
+/* 아이템 리스트 */
+#item-list {
+  margin: 0 2rem 2rem;
+}
+
+    section { display: none; }
+    section.active { display: block; }
+
+
+
+  </style>
+</head>
+<body>
+  <aside id="sidebar">
+    <h2>Labels</h2>
+    <div class="menu-item" onclick="filterItems(this, '전체 목록', null)">전체 목록</div>
+    <div class="menu-item" onclick="filterItems(this, '소비기한 임박', '임박')">소비기한 임박</div>
+    <div class="menu-item" onclick="filterItems(this, '즐겨찾기', '즐겨찾기')">즐겨찾기</div>
+    <h2>보관 방식</h2>
+    <div class="menu-item" onclick="filterItems(this, '냉동 보관', '냉동')">냉동 보관</div>
+    <div class="menu-item" onclick="filterItems(this, '냉장 보관', '냉장')">냉장 보관</div>
+    <div class="menu-item" onclick="filterItems(this, '실온 보관', '실온')">실온 보관</div>
+  </aside>
+  <header>
+    <div class="logo" onclick="navigateTo('about')">Site name</div>
+    <nav id="nav-links">
+      <a id="nav-main" href="#" onclick="navigateTo('main')">Main</a>
+      <a id="nav-map" href="#" onclick="navigateTo('map')">Map</a>
+      <a id="nav-mypage" href="#" onclick="navigateTo('mypage')">My Page</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="about-container">
+      <div class="about-text">
+        <section id="about" class="active">
+          <h1>About</h1>
+          <p>1인 가구의 삶의 질 향상을 위한 식재료 관리 서비스입니다.</p>
+          <p>소비기한과 보관상태를 관리하세요!</p>
+        </section>
+      </div>
+      <div class="side-buttons" id="auth-buttons">
+        <button onclick="showLogin()">Sign in <span>→</span></button>
+        <button onclick="showSignUp()">Sign up <span>→</span></button>
+        <button onclick="showFeedback()">Feedback <span>→</span></button>
+      </div>
+    </div>
+    <section id="all-items">전체 목록 페이지</section>
+    <section id="expiring">소비기한 임박 목록 페이지</section>
+    <section id="favorites">즐겨찾기 페이지</section>
+    <section id="frozen">냉동 보관 목록 페이지</section>
+    <section id="refrigerated">냉장 보관 목록 페이지</section>
+    <section id="room-temp">실온 보관 목록 페이지</section>
+    <section id="about">About 페이지</section>
+  </main>
+
+  <section id="main">
+    <h1 class="page-title">Main</h1>
+    <div class="card-grid">
+      <div class="card" onclick="navigateTo('favorites')">
+        <div class="icon">⭐</div>
+        <h3>즐겨찾기</h3>
+        <p>즐겨찾기한 식재료를 한 눈에 확인할 수 있습니다.</p>
+      </div>
+      <div class="card" onclick="navigateTo('expiring')">
+        <div class="icon">⚠️</div>
+        <h3>소비 기한 임박</h3>
+        <p>소비기한이 얼마 남지 않은 품목들을 모아서 보여줍니다.</p>
+      </div>
+      <div class="card" onclick="navigateTo('all-items')">
+        <div class="icon">ℹ️</div>
+        <h3>전체 목록</h3>
+        <p>등록된 전체 식재료를 확인할 수 있습니다.</p>
+      </div>
+      <div class="card" onclick="navigateTo('frozen')">
+        <div class="icon">❄️</div>
+        <h3>냉동 보관 목록</h3>
+        <p>냉동 상태로 보관 중인 식재료 목록입니다.</p>
+      </div>
+      <div class="card" onclick="navigateTo('refrigerated')">
+        <div class="icon">🧊</div>
+        <h3>냉장 보관 목록</h3>
+        <p>냉장 상태로 보관 중인 식재료 목록입니다.</p>
+      </div>
+      <div class="card" onclick="navigateTo('room-temp')">
+        <div class="icon">🏠</div>
+        <h3>실온 보관 목록</h3>
+        <p>실온 보관 중인 식재료들을 확인할 수 있습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="map">
+    <h1 class="page-title">Map</h1>
+    <div style="display: flex; gap: 2rem;">
+      <div style="background-color: #f5f5f5; padding: 1.5rem; border-radius: 12px; width: 300px;">
+        <div style="margin-bottom: 1.5rem;">
+          <div style="font-weight: bold;">마트 이름</div>
+          <div style="color: #777;">주소</div>
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+          <div style="font-weight: bold;">마트 이름</div>
+          <div style="color: #777;">주소</div>
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+          <div style="font-weight: bold;">마트 이름</div>
+          <div style="color: #777;">주소</div>
+        </div>
+        <div>
+          <div style="font-weight: bold;">마트 이름</div>
+          <div style="color: #777;">주소</div>
+        </div>
+      </div>
+      <div style="background-color: #d9d9d9; width: 400px; height: 400px; display: flex; justify-content: center; align-items: center;">
+        <img src="/mnt/data/79d3c01a-138c-4932-891e-045a143a728c.png" alt="Map Icon" style="width: 100px; height: auto;" />
+      </div>
+    </div>
+  </section>
+  <section id="mypage">
+    <h1 class="page-title">My Page</h1>
+    <div style="display: flex; gap: 2rem; align-items: flex-start; margin-top: 2rem;">
+      <div style="flex: 1; max-width: 300px; text-align: center;">
+        <div style="width: 120px; height: 120px; background-color: #ccc; border-radius: 50%; margin: 0 auto; display: flex; justify-content: center; align-items: center; font-size: 3rem;">👤</div>
+        <p id="welcome-message" style="font-weight: bold; margin-top: 1rem;">Username님 환영합니다!</p>
+        <label for="profile-username">Username</label>
+        <input id="profile-username" type="text" disabled style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 8px;">
+        <label for="profile-id">ID</label>
+        <input id="profile-id" type="text" disabled style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 8px;">
+      </div>
+      <div style="flex: 2; display: flex; flex-direction: column; gap: 1rem;">
+        <div class="mypage-button" onclick="navigateTo('favorites')">즐겨찾기 <span>→</span></div>
+        <div class="mypage-button" onclick="navigateTo('expiring')">소비 기한 임박 목록 <span>→</span></div>
+        <div class="mypage-button" onclick="navigateTo('all-items')">전체 보관 목록 <span>→</span></div>
+        <div class="mypage-button" onclick="navigateTo('frozen')">냉동 보관 목록 <span>→</span></div>
+        <div class="mypage-button" onclick="navigateTo('refrigerated')">냉장 보관 목록 <span>→</span></div>
+        <div class="mypage-button" onclick="navigateTo('room-temp')">실온 보관 목록 <span>→</span></div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="feedback">
+    <h1 class="page-title">Contact us</h1>
+    <div style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+      
+      <!-- 왼쪽: 이메일 -->
+      <div style="flex: 1; display: flex; flex-direction: column;">
+        <label for="feedback-email" style="font-weight: 600; margin-bottom: 0.5rem;">Your Email address</label>
+        <textarea id="feedback-email" placeholder="email@janesfakedomain.net"
+          style="height: 150px; padding: 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px;"></textarea>
+      </div>
+  
+      <!-- 오른쪽: 메시지 -->
+      <div style="flex: 1; display: flex; flex-direction: column;">
+        <label for="feedback-message" style="font-weight: 600; margin-bottom: 0.5rem;">Your message</label>
+        <textarea id="feedback-message" placeholder="Enter your question or message"
+          style="height: 150px; padding: 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px;"></textarea>
+      </div>
+  
+    </div>
+  
+    <div style="text-align: center;">
+      <button style="background: #000; color: #fff; border: none; border-radius: 6px; padding: 1rem 4rem; font-size: 1rem; cursor: pointer;">
+        Submit
+      </button>
+    </div>
+  </section>
+  
+  <section id="login">
+    <div class="login-box">
+      <h1 style="text-align:center;">Sign in</h1>
+      <input id="login-id" type="text" placeholder="Enter your id" style="width:100%; padding:0.75rem; margin-top:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <input id="login-password" type="password" placeholder="Enter your password" style="width:100%; padding:0.75rem; margin-top:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <div style="text-align:center; margin-top:1rem;">
+        <a href="#" onclick="navigateTo('signup')" style="color:#444; text-decoration:underline; font-size:0.9rem;">Sign up</a>
+      </div>
+      <button onclick="performLogin()" style="width:100%; background:#000; color:#fff; padding:0.75rem; border:none; border-radius:6px; margin-top:1rem; font-weight:bold;">
+        Sign in
+      </button>
+    </div>
+  </section>
+
+  <section id="signup">
+    <div class="login-box">
+      <h1 style="text-align:center;">Sign up</h1>
+      <input id="signup-username" type="text" placeholder="Enter your username" style="width:100%; padding:0.75rem; margin-top:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <input id="signup-id" type="text" placeholder="Enter your id" style="width:100%; padding:0.75rem; margin-top:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <input id="signup-password" type="password" placeholder="Enter your password" style="width:100%; padding:0.75rem; margin-top:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <div style="text-align:center; margin-top:1rem;">
+        <a href="#" onclick="navigateTo('login')" style="color:#444; text-decoration:underline; font-size:0.9rem;">Sign in</a>
+      </div>
+      <button onclick="createAccount()" style="width:100%; background:#000; color:#fff; padding:0.75rem; border:none; border-radius:6px; margin-top:1rem; font-weight:bold;">
+        Create Account
+      </button>
+    </div>
+  </section>
+
+ 
+  <section id="favorites">
+    <h1 class="page-title">즐겨찾기</h1>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+      <button style="font-size: 2rem; border: none; background: #eee; border-radius: 50%; width: 40px; height: 40px; cursor: pointer;">＋</button>
+      <div style="position: relative;">
+        <input type="text" placeholder="Search" style="padding: 0.5rem 2.5rem 0.5rem 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc;">
+        <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">🔍</span>
+      </div>
+    </div>
+  
+    <div style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">즐겨찾기</div>
+  
+    <div style="background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <!-- 예시 즐겨찾기 항목 -->
+      <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eee; padding: 1rem;">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <span style="font-size: 1.2rem;">★</span>
+          <div>
+            <div style="font-size: 0.9rem; color: #999;">냉동</div>
+            <div style="font-weight: bold;">item</div>
+            <div style="font-size: 0.85rem;">~ 2025.06.30</div>
+          </div>
+        </div>
+        <input type="checkbox" checked />
+      </div>
+  
+      <!-- 추가 즐겨찾기 항목도 동일한 구조로 반복 -->
+    </div>
+  </section>
+  <section id="all-items" class="inventory-section">
+      <h1 class="inventory-title" id="inventory-title">전체 목록</h1>
+      <div class="inventory-search-wrapper">
+      <input id="search-input" class="inventory-search" placeholder="Search" oninput="renderItems()">
+      <span class="search-icon">🔍</span>
+    </div>
+        </div>
+      </div>
+    </header>
+    <div class="inventory-header">
+      <button class="add-button" onclick="showAddForm()">＋</button>
+      <h1 class="inventory-title" id="inventory-title">전체 목록</h1>
+      <div class="inventory-search-wrapper">
+        <input id="search-input" class="inventory-search"
+               type="text" placeholder="Search" oninput="renderItems()">
+        <span class="search-icon">🔍</span>
+      </div>
+    </div>
+  
+    <!-- 실제 아이템 리스트가 이곳에 렌더됩니다 -->
+    <div id="item-list"></div>
+    <!-- 라벨 필터링 -->
+    <div style="display: flex; gap: 2rem; margin: 1rem 0;">
+      <!-- 상태별 필터 -->
+      <div>
+        <div style="font-weight: bold; margin-bottom: 0.5rem;">Labels</div>
+        <div>
+          <button onclick="filterByLabel('all')" id="label-all" class="label-button active">전체 목록</button>
+          <button onclick="filterByLabel('expiring')" id="label-expiring" class="label-button">소비기한 임박 목록</button>
+          <button onclick="filterByLabel('favorite')" id="label-favorite" class="label-button">즐겨찾기</button>
+        </div>
+      </div>
+      <!-- 보관 방식 필터 -->
+      <div>
+        <div style="font-weight: bold; margin-bottom: 0.5rem;">보관 방식</div>
+        <div>
+          <button onclick="filterByStorage('냉동')" id="storage-frozen" class="label-button">냉동</button>
+          <button onclick="filterByStorage('냉장')" id="storage-refrigerated" class="label-button">냉장</button>
+          <button onclick="filterByStorage('실온')" id="storage-room" class="label-button">실온</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- 항목 목록 -->
+    <div id="item-list" style="background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <!-- 자바스크립트로 동적 렌더링됨 -->
+    </div>
+  </section>
+  
+
+  <footer>
+    <div>Site name</div>
+    <div>ⓒ 2025 Created by Stuart</div>
+  </footer>
+  <script>
+    const pages = ['about', 'main', 'mypage', 'map', 'feedback', 'login', 'signup', 'favorites'];
+    const pageListWithSidebar = ['all-items', 'expiring', 'favorites', 'frozen', 'refrigerated', 'room-temp'];
+    let isLoggedIn = false;
+    let pendingPage = null;
+
+    function navigateTo(pageId) {
+      if (!isLoggedIn && !['login', 'signup', 'about'].includes(pageId)) {
+        pendingPage = pageId;
+        document.getElementById('auth-buttons')?.style.setProperty('display', 'none');
+        showPage('login');
+        return;
+      }
+
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      const target = document.getElementById(pageId);
+      if (target) target.classList.add('active');
+
+      const sidebar = document.getElementById('sidebar');
+      if (pageListWithSidebar.includes(pageId)) {
+        sidebar.classList.add('active');
+      } else {
+        sidebar.classList.remove('active');
+      }
+
+      document.querySelectorAll('#sidebar .menu-item').forEach(el => el.classList.remove('active'));
+      const activeMenu = document.querySelector(`#sidebar .menu-item[onclick*="${pageId}"]`);
+      if (activeMenu) activeMenu.classList.add('active');
+
+      if (pageId === 'mypage') {
+        updateMyPageInfo();
+      }
+      if (pageId === 'all-items') {
+        labelFilter = 'all';
+        storageFilter = null;
+        const input = document.getElementById('search-input');
+        if (input) input.value = '';
+        renderItems();
+      }
+    }
+
+    function showPage(pageId) {
+      pages.forEach(page => {
+        document.getElementById(page)?.classList.remove('active');
+      });
+      document.getElementById(pageId)?.classList.add('active');
+    }
+
+    function showLogin() {
+      document.getElementById('auth-buttons').style.display = 'none';
+      showPage('login');
+    }
+
+    function showSignUp() {
+      document.getElementById('auth-buttons').style.display = 'none';
+      showPage('signup');
+    }
+
+    function showFeedback() {
+      document.getElementById('auth-buttons').style.display = 'none';
+      showPage('feedback');
+    }
+
+    function createAccount() {
+      const username = document.getElementById('signup-username').value.trim();
+      const id = document.getElementById('signup-id').value.trim();
+      const password = document.getElementById('signup-password').value.trim();
+
+      if (!username || !id || !password) {
+        alert('모든 항목을 입력해주세요.');
+        return;
+      }
+
+      const existingUser = localStorage.getItem(`user:${id}`);
+      if (existingUser) {
+        alert('이미 존재하는 ID입니다.');
+        return;
+      }
+
+      localStorage.setItem(`user:${id}`, JSON.stringify({ username, id, password }));
+      alert('회원가입이 완료되었습니다! 로그인 후 이용해주세요.');
+      showPage('login');
+    }
+
+    function performLogin() {
+      const id = document.getElementById('login-id').value.trim();
+      const password = document.getElementById('login-password').value.trim();
+
+      if (!id || !password) {
+        alert('ID와 비밀번호를 입력해주세요.');
+        return;
+      }
+
+      const userData = localStorage.getItem(`user:${id}`);
+      if (!userData) {
+        alert('존재하지 않는 사용자입니다.');
+        return;
+      }
+
+      const parsed = JSON.parse(userData);
+      if (!parsed.username || parsed.password !== password) {
+        alert('비밀번호가 일치하지 않거나 사용자 정보가 잘못되었습니다.');
+        return;
+      }
+
+      alert('로그인되었습니다!');
+      isLoggedIn = true;
+      document.getElementById('auth-buttons').style.display = 'none';
+      localStorage.setItem('currentUser', id);
+      showPage(pendingPage || 'main');
+      pendingPage = null;
+    }
+
+    function updateMyPageInfo() {
+      const currentId = localStorage.getItem('currentUser');
+      if (!currentId) return;
+
+      const userData = localStorage.getItem(`user:${currentId}`);
+      if (!userData) return;
+
+      const parsed = JSON.parse(userData);
+      if (!parsed.username || !parsed.id) return;
+
+      document.getElementById('welcome-message').innerText = `${parsed.username}님 환영합니다!`;
+      document.getElementById('profile-username').value = parsed.username;
+      document.getElementById('profile-id').value = parsed.id;
+    }
+
+    const items = [
+      { id: 1, category: "냉동", name: "item", expire: "2025-06-30", favorite: true, expiring: false, done: false },
+      { id: 2, category: "냉장", name: "item", expire: "2025-05-10", favorite: false, expiring: true, done: false },
+      { id: 3, category: "실온", name: "item", expire: "2025-05-08", favorite: true, expiring: true, done: true }
+    ];
+
+    let labelFilter = 'all';
+    let storageFilter = null;
+
+    function renderItems() {
+      const keyword = document.getElementById("search-input").value.toLowerCase();
+      const container = document.getElementById("item-list");
+      container.innerHTML = '';
+
+      const filtered = items.filter(item => {
+        if (labelFilter === 'favorite' && !item.favorite) return false;
+        if (labelFilter === 'expiring' && !item.expiring) return false;
+        if (storageFilter && item.category !== storageFilter) return false;
+        if (keyword && !item.name.toLowerCase().includes(keyword)) return false;
+        return true;
+      });
+
+      document.getElementById('item-count').innerText = `(${filtered.length})`;
+
+      for (const item of filtered) {
+        const card = document.createElement('div');
+        card.className = 'item-card' + (item.done ? ' checked' : '');
+
+        card.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <span style="cursor: pointer; font-size: 1.2rem;" onclick="toggleFavorite(${item.id})">${item.favorite ? '★' : '☆'}</span>
+            <div>
+              <div style="font-size: 0.8rem; color: #999;">${item.category}</div>
+              <div style="font-weight: bold;">${item.name}</div>
+              <div style="font-size: 0.85rem; color: ${item.expiring ? '#cc0000' : '#777'};">
+                ${item.expiring ? 'Supporting line text lorem ipsum dolor sit amet, consectetur.' : `~ ${item.expire}`}
+              </div>
+            </div>
+          </div>
+          <input type="checkbox" ${item.done ? 'checked' : ''} onclick="toggleDone(${item.id})"/>
+        `;
+
+        container.appendChild(card);
+      }
+    }
+
+    function toggleFavorite(id) {
+      const item = items.find(i => i.id === id);
+      if (item) {
+        item.favorite = !item.favorite;
+        renderItems();
+      }
+    }
+
+    function toggleDone(id) {
+      const item = items.find(i => i.id === id);
+      if (item) {
+        item.done = !item.done;
+        renderItems();
+      }
+    }
+
+    function filterByLabel(label) {
+      labelFilter = label;
+      document.querySelectorAll('.label-button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(`label-${label}`).classList.add('active');
+      renderItems();
+    }
+
+    function filterByStorage(storage) {
+      storageFilter = storage;
+      renderItems();
+    }
+  
+    window.addEventListener('DOMContentLoaded', () => {
+      navigateTo('about');
+    });
+    let currentFilter = { title: '전체 목록', type: null };
+
+    // <— 기존 filterItems(title,type) 정의 대신
+function filterItems(el, title, type) {
+  // 1) 모든 섹션 감추기
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+
+  // 2) 타이틀 교체 (id="inventory-title"가 붙은 <h1>이 있어야 합니다)
+  document.getElementById('inventory-title').textContent = title;
+
+  // 3) 인벤토리만 보이기
+  document.getElementById('all-items').classList.add('active');
+
+  // 4) 사이드바 메뉴 하이라이트
+  document.querySelectorAll('#sidebar .menu-item').forEach(m=>m.classList.remove('active'));
+  el.classList.add('active');
+
+  // 5) 필터 세팅
+  if (type === '즐겨찾기')      labelFilter='favorite';
+  else if (type === '임박')     labelFilter='expiring';
+  else                          labelFilter='all';
+  storageFilter = ['냉동','냉장','실온'].includes(type)? type : null;
+
+  // 6) 아이템 렌더
+  renderItems();
+
+  // 7) (선택) 전체 개수 배지 갱신
+  document.getElementById('all-count').textContent = allItemsData.length;
+}
+
+   
+
+
+
+function renderFilteredItems(type) {
+  const container = document.getElementById("item-list");
+  container.innerHTML = '';
+
+  const filtered = items.filter(item => {
+    if (type === null) return true;
+    if (type === '즐겨찾기') return item.favorite;
+    if (type === '임박') return item.expire && new Date(item.expire) <= new Date('2025-07-01');
+    return item.category === type;
+  });
+
+  document.getElementById('item-count').innerText = `(${filtered.length})`;
+
+  for (const item of filtered) {
+    const card = document.createElement('div');
+    card.className = 'item-card' + (item.done ? ' checked' : '');
+
+    card.innerHTML = `
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span style="cursor: pointer; font-size: 1.2rem;" onclick="toggleFavorite(${item.id})">${item.favorite ? '★' : '☆'}</span>
+        <div>
+          <div style="font-size: 0.8rem; color: #999;">${item.category}</div>
+          <div style="font-weight: bold;">${item.name}</div>
+          <div style="font-size: 0.85rem; color: ${item.expiring ? '#cc0000' : '#777'};">
+            ${item.expiring ? '임박' : `~ ${item.expire}`}
+          </div>
+        </div>
+      </div>
+      <input type="checkbox" ${item.done ? 'checked' : ''} onclick="toggleDone(${item.id})"/>
+    `;
+
+    container.appendChild(card);
+  }
+}
+
+  </script>
+  </body>
+  </html>
