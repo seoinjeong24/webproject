@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f4f4;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+nav a.active {
+  background-color: #333;
+  color: #fff;
+}
+
+main {
+  padding: 3rem 2rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.map-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.store-list {
+  width: 30%;
+}
+
+.store-item {
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.store-item strong {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.store-item div {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.map-container {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d9d9d9;
+  padding: 2rem;
+}
+
+.map-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+footer {
+  padding: 2rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+footer div {
+  font-size: 1rem;
+  color: #333;
+}
