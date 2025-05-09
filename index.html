@@ -10,6 +10,7 @@
       margin: 0;
       background: #fff;
     }
+
     header {
       display: flex;
       justify-content: space-between;
@@ -17,49 +18,61 @@
       padding: 1rem 2rem;
       border-bottom: 1px solid #ccc;
     }
+
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
     }
+
     nav a {
       margin-left: 1rem;
       text-decoration: none;
       color: #000;
       font-weight: 500;
     }
+
     main {
       display: flex;
       justify-content: space-between;
-      align-items: center; /* 수직 정렬 */
+      align-items: flex-start;
       padding: 3rem 2rem;
+      gap: 4rem;
     }
+
     .about-text {
       flex: 1;
       max-width: 700px;
     }
+
     .about-text h1 {
       font-size: 3rem;
       font-weight: bold;
       margin: 0 0 1rem 0;
     }
-    .about-text p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 1rem;
-      color: #333;
-    }
+
     .about-text .sub-intro {
       font-size: 1rem;
       color: #666;
       font-weight: 500;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
+
+    .about-text p {
+      white-space: pre-wrap; /* 공백 및 줄바꿈 유지 */
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+      margin-bottom: 1.2rem;
+    }
+
     .side-buttons {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
       align-items: flex-end;
+      padding-top: 2.4rem;
     }
+
     .side-buttons button {
       background: #000;
       color: #fff;
@@ -72,10 +85,17 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: background 0.2s;
     }
+
+    .side-buttons button:hover {
+      background: #444;
+    }
+
     .side-buttons button span {
       font-size: 1.8rem;
     }
+
     footer {
       text-align: left;
       padding: 2rem;
@@ -99,14 +119,13 @@
     <div class="about-text">
       <h1>About</h1>
       <p class="sub-intro">간단하면서도 실용적인 서비스를 통해 1인 가구의 삶의 질 향상을 목표로 합니다.</p>
-      <p>잊고 계신 건 없나요? 예를 들자면 냉장고 구석에서 방치되고 있는 당근이나 양배추 말이죠.</p>
-      <p>1인 가구가 늘어나는 현대 사회에서, 생필품과 식재료의 소비기한을 관리하는 것은 잊히기 쉬운 과제가 되었습니다.</p>
-      <p>특히 바쁜 일상 속에서, 냉장·냉동·실온 별로 품목들의 소비기한을 일일이 확인하는 것은 번거롭고 까다롭습니다.</p>
-      <p>그래서 저희는 생필품 및 식재료의 소비기한을 쉽게 관리하고 확인할 수 있는 웹사이트를 개발했습니다.</p>
-      <p>이제 이상 곰팡이가 핀 과일도, 썩어가는 식재료도 마주칠 일이 없을 겁니다.</p>
-      <p>사용자는 손쉽게 품목을 등록하고, 소비기한이 다가오는 품목을 확인할 수 있습니다.</p>
-      <p>우리 웹서비스 팀은 건강한 1인 가구의 삶을 응원합니다!</p>
+
+      <p>  잊고 계신 건 없나요? 예를 들자면 냉장고 구석에서 방치되고 있는 당근이나 양배추 말이죠.</p>
+      <p>  1인 가구가 늘어나는 현대 사회에서, 생필품과 식재료의 소비기한을 관리하는 것은 잊히기 쉬운 과제가 되었습니다. 특히 바쁜 일상 속에서, 냉장·냉동·실온 별로 품목들의 소비기한을 일일이 확인하는 것은 번거롭고 까다롭습니다.</p>
+      <p>  그래서 저희는 생필품 및 식재료의 소비기한을 쉽고 편리하게 관리할 수 있는 웹사이트를 개발했습니다. 더 이상 곰팡이가 핀 과일도, 썩어가는 식재료도 마주칠 일이 없을 겁니다. 사용자는 손쉽게 품목을 등록하고, 소비기한이 다가오는 품목을 확인할 수 있습니다.</p>
+      <p>  우리 웹시설 3팀은 건강한 1인 가구의 삶을 응원합니다!</p>
     </div>
+
     <div class="side-buttons">
       <button>Sign in <span>→</span></button>
       <button>Sign up <span>→</span></button>
