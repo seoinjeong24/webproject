@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>1인 가구 식재료 관리</title>
+  <link rel="stylesheet" href="all.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <aside id="sidebar" class="active">
+        <div class="sidebar-title">Site name</div>
+        <div class="sidebar-subtitle">More</div>
+      
+        <div class="nav-group">
+          <div class="nav-item" onclick="navigateTo('main')">
+            <i class="material-icons">home</i>
+            Main
+          </div>
+          <div class="nav-item" onclick="navigateTo('feedback')">
+            <i class="material-icons">feedback</i>
+            Feedback
+          </div>
+          <div class="nav-item" onclick="navigateTo('mypage')">
+            <i class="material-icons">person</i>
+            My Page
+          </div>
+          <div class="nav-item" onclick="navigateTo('about')">
+            <i class="material-icons">info</i>
+            About
+          </div>
+        </div>
+      
+        <div class="sidebar-divider"></div>
+      
+        <h2 class="sidebar-heading">Labels</h2>
+        <div class="menu-item active" onclick="filterItems(this, '전체 목록', null)">
+          <i class="material-icons">folder</i>
+          <span>전체 목록</span>
+          <span class="badge" id="all-count"></span>
+        </div>
+        <div class="menu-item" onclick="filterItems(this, '소비기한 임박 목록', '임박')">
+          <i class="material-icons">folder</i>
+          <span>소비기한 임박 목록</span>
+        </div>
+        <div class="menu-item" onclick="filterItems(this, '즐겨찾기', '즐겨찾기')">
+          <i class="material-icons">folder</i>
+          <span>즐겨찾기</span>
+        </div>
+      
+        <h2 class="sidebar-heading">Labels</h2>
+        <div class="menu-item" onclick="filterItems(this, '냉동 보관', '냉동')">
+          <i class="material-icons">ac_unit</i>
+          <span>냉동</span>
+        </div>
+        <div class="menu-item" onclick="filterItems(this, '냉장 보관', '냉장')">
+          <i class="material-icons">kitchen</i>
+          <span>냉장</span>
+        </div>
+        <div class="menu-item" onclick="filterItems(this, '실온 보관', '실온')">
+          <i class="material-icons">home</i>
+          <span>실온</span>
+        </div>
+      </aside>
+      
+  <header>
+    <div class="logo" onclick="navigateTo('about')">Site name</div>
+    <nav id="nav-links">
+      <a id="nav-main" href="#" onclick="navigateTo('main')">Main</a>
+      <a id="nav-map" href="#" onclick="navigateTo('map')">Map</a>
+      <a id="nav-mypage" href="#" onclick="navigateTo('mypage')">My Page</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="about-container">
+      <div class="about-text">
+        <section id="about" class="active">
+          <h1>About</h1>
+          <p>1인 가구의 삶의 질 향상을 위한 식재료 관리 서비스입니다.</p>
+          <p>소비기한과 보관상태를 관리하세요!</p>
+        </section>
+      </div>
+      <div class="side-buttons" id="auth-buttons">
+        <button onclick="showLogin()">Sign in <span>→</span></button>
+        <button onclick="showSignUp()">Sign up <span>→</span></button>
+        <button onclick="showFeedback()">Feedback <span>→</span></button>
+      </div>
+    </div>
+    
+  </main>
+
+  <section id="main">
+    <h1 class="page-title">Main</h1>
+    <div class="card-grid">
+      <div class="card" onclick="navigateTo('favorites')">
+        <div class="icon">⭐</div>
+        <h3>즐겨찾기</h3>
+        <p>즐겨찾기한 식재료를 한 눈에 확인할 수 있습니다.</p>
+      </div>
+      <div class="card" onclick="navigateTo('expiring')">
+        <div class="icon">⚠️</div>
+        <h3>소비 기한 임박</h3>
+        <p>소비기한이 얼마 남지 않은 품목들을 모아서 보여줍니다.</p>
+      </div>
+      <div class="card" onclick="navigateTo('all-items')">
+        <div class="icon">ℹ️</div>
+        <h3>전체 목록</h3>
+        <p>등록된 전체 식재료를 확인할 수 있습니다.</p>
+      </div>
+      <div class="card" onclick="navigateTo('frozen')">
+        <div class="icon">❄️</div>
+        <h3>냉동 보관 목록</h3>
+        <p>냉동 상태로 보관 중인 식재료 목록입니다.</p>
+      </div>
+      <div class="card" onclick="navigateTo('refrigerated')">
+        <div class="icon">🧊</div>
+        <h3>냉장 보관 목록</h3>
+        <p>냉장 상태로 보관 중인 식재료 목록입니다.</p>
+      </div>
+      <div class="card" onclick="navigateTo('room-temp')">
+        <div class="icon">🏠</div>
+        <h3>실온 보관 목록</h3>
+        <p>실온 보관 중인 식재료들을 확인할 수 있습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="map">
+    <h1 class="page-title">Map</h1>
+    <div style="display: flex; gap: 2rem;">
+      <div style="background-color: #f5f5f5; padding: 1.5rem; border-radius: 12px; width: 300px;">
+        <div style="margin-bottom: 1.5rem;">
+          <div style="font-weight: bold;">마트 이름</div>
+          <div style="color: #777;">주소</div>
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+          <div style="font-weight: bold;">마트 이름</div>
+          <div style="color: #777;">주소</div>
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+          <div style="font-weight: bold;">마트 이름</div>
+          <div style="color: #777;">주소</div>
+        </div>
+        <div>
+          <div style="font-weight: bold;">마트 이름</div>
+          <div style="color: #777;">주소</div>
+        </div>
+      </div>
+      <div style="background-color: #d9d9d9; width: 400px; height: 400px; display: flex; justify-content: center; align-items: center;">
+        <img src="/mnt/data/79d3c01a-138c-4932-891e-045a143a728c.png" alt="Map Icon" style="width: 100px; height: auto;" />
+      </div>
+    </div>
+  </section>
+  <section id="mypage">
+    <h1 class="page-title">My Page</h1>
+    <div style="display: flex; gap: 2rem; align-items: flex-start; margin-top: 2rem;">
+      <div style="flex: 1; max-width: 300px; text-align: center;">
+        <div style="width: 120px; height: 120px; background-color: #ccc; border-radius: 50%; margin: 0 auto; display: flex; justify-content: center; align-items: center; font-size: 3rem;">👤</div>
+        <p id="welcome-message" style="font-weight: bold; margin-top: 1rem;">Username님 환영합니다!</p>
+        <label for="profile-username">Username</label>
+        <input id="profile-username" type="text" disabled style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 8px;">
+        <label for="profile-id">ID</label>
+        <input id="profile-id" type="text" disabled style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 8px;">
+      </div>
+      <div style="flex: 2; display: flex; flex-direction: column; gap: 1rem;">
+        <div class="mypage-button" onclick="filterItems(this, '즐겨찾기', '즐겨찾기')">즐겨찾기 <span>→</span></div>
+        <div class="mypage-button" onclick="filterItems(this, '소비기한 임박 목록', '임박')">소비기한 임박 목록 <span>→</span></div>
+        <div class="mypage-button" onclick="filterItems(this, '전체 보관 목록', null)">전체 보관 목록 <span>→</span></div>
+        <div class="mypage-button" onclick="filterItems(this, '냉동 보관 목록', '냉동')">냉동 보관 목록 <span>→</span></div>
+        <div class="mypage-button" onclick="filterItems(this, '냉장 보관 목록', '냉장')">냉장 보관 목록 <span>→</span></div>
+        <div class="mypage-button" onclick="filterItems(this, '실온 보관 목록', '실온')">실온 보관 목록 <span>→</span></div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="feedback">
+    <h1 class="page-title">Contact us</h1>
+    <div style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+      
+      <!-- 왼쪽: 이메일 -->
+      <div style="flex: 1; display: flex; flex-direction: column;">
+        <label for="feedback-email" style="font-weight: 600; margin-bottom: 0.5rem;">Your Email address</label>
+        <textarea id="feedback-email" placeholder="email@janesfakedomain.net"
+          style="height: 150px; padding: 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px;"></textarea>
+      </div>
+  
+      <!-- 오른쪽: 메시지 -->
+      <div style="flex: 1; display: flex; flex-direction: column;">
+        <label for="feedback-message" style="font-weight: 600; margin-bottom: 0.5rem;">Your message</label>
+        <textarea id="feedback-message" placeholder="Enter your question or message"
+          style="height: 150px; padding: 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px;"></textarea>
+      </div>
+  
+    </div>
+  
+    <div style="text-align: center;">
+      <button style="background: #000; color: #fff; border: none; border-radius: 6px; padding: 1rem 4rem; font-size: 1rem; cursor: pointer;">
+        Submit
+      </button>
+    </div>
+  </section>
+  
+  <section id="login">
+    <div class="login-box">
+      <h1 style="text-align:center;">Sign in</h1>
+      <input id="login-id" type="text" placeholder="Enter your id" style="width:100%; padding:0.75rem; margin-top:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <input id="login-password" type="password" placeholder="Enter your password" style="width:100%; padding:0.75rem; margin-top:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <div style="text-align:center; margin-top:1rem;">
+        <a href="#" onclick="navigateTo('signup')" style="color:#444; text-decoration:underline; font-size:0.9rem;">Sign up</a>
+      </div>
+      <button onclick="performLogin()" style="width:100%; background:#000; color:#fff; padding:0.75rem; border:none; border-radius:6px; margin-top:1rem; font-weight:bold;">
+        Sign in
+      </button>
+    </div>
+  </section>
+
+  <section id="signup">
+    <div class="login-box">
+      <h1 style="text-align:center;">Sign up</h1>
+      <input id="signup-username" type="text" placeholder="Enter your username" style="width:100%; padding:0.75rem; margin-top:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <input id="signup-id" type="text" placeholder="Enter your id" style="width:100%; padding:0.75rem; margin-top:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <input id="signup-password" type="password" placeholder="Enter your password" style="width:100%; padding:0.75rem; margin-top:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <div style="text-align:center; margin-top:1rem;">
+        <a href="#" onclick="navigateTo('login')" style="color:#444; text-decoration:underline; font-size:0.9rem;">Sign in</a>
+      </div>
+      <button onclick="createAccount()" style="width:100%; background:#000; color:#fff; padding:0.75rem; border:none; border-radius:6px; margin-top:1rem; font-weight:bold;">
+        Create Account
+      </button>
+    </div>
+  </section>
+
+ 
+  <section id="favorites">
+    <h1 class="page-title">즐겨찾기</h1>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+      <button style="font-size: 2rem; border: none; background: #eee; border-radius: 50%; width: 40px; height: 40px; cursor: pointer;">＋</button>
+      <div style="position: relative;">
+        <input type="text" placeholder="Search" style="padding: 0.5rem 2.5rem 0.5rem 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc;">
+        <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">🔍</span>
+      </div>
+    </div>
+  
+    <div style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">즐겨찾기</div>
+  
+    <div style="background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <!-- 예시 즐겨찾기 항목 -->
+      <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eee; padding: 1rem;">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <span style="font-size: 1.2rem;">★</span>
+          <div>
+            <div style="font-size: 0.9rem; color: #999;">냉동</div>
+            <div style="font-weight: bold;">item</div>
+            <div style="font-size: 0.85rem;">~ 2025.06.30</div>
+          </div>
+        </div>
+        <input type="checkbox" checked />
+      </div>
+  
+      <!-- 추가 즐겨찾기 항목도 동일한 구조로 반복 -->
+    </div>
+  </section>
+  <!-- 전체 목록 -->
+<section id="all-items" class="inventory-section">
+    <div class="inventory-header">
+      <button class="add-button">＋</button>
+      <h1 class="inventory-title" id="inventory-title">전체 목록</h1>
+      <div class="inventory-search-wrapper">
+        <input id="search-input" class="inventory-search" type="text" placeholder="Search" oninput="renderItems()">
+        <button type="button" class="search-button">🔍</button>
+      </div>
+    </div>
+    <div style="background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+      <!-- Row 1 -->
+      <div class="item-card" style="display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #eee; padding:1rem;">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <span style="font-size:1.2rem; cursor:pointer;">☆</span>
+          <div>
+            <div style="font-size:0.9rem; color:#999;">냉동</div>
+            <div style="font-weight:bold;">item</div>
+            <div style="font-size:0.85rem; color:#777;">~ 2025.06.30</div>
+          </div>
+        </div>
+        <input type="checkbox">
+      </div>
+      <!-- Row 2 -->
+      <div style="display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #eee; padding:1rem; background:#f9f9f9;">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <span style="font-size:1.2rem; cursor:pointer;">★</span>
+          <div>
+            <div style="font-size:0.9rem; color:#999;">Overline</div>
+            <div style="font-weight:bold;">item</div>
+            <div style="font-size:0.85rem; color:#cc0000;">Supporting line text lorem ipsum dolor sit amet, consectetur.</div>
+          </div>
+        </div>
+        <input type="checkbox">
+      </div>
+      <!-- Row 3 -->
+      <div class="item-card" style="display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #eee; padding:1rem;">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <span style="font-size:1.2rem; cursor:pointer;">☆</span>
+          <div>
+            <div style="font-size:0.9rem; color:#999;">Overline</div>
+            <div style="font-weight:bold;">item</div>
+            <div style="font-size:0.85rem; color:#777;">Supporting line text lorem ipsum dolor sit amet, consectetur.</div>
+          </div>
+        </div>
+        <input type="checkbox">
+      </div>
+      <!-- Row 4 -->
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:1rem; background:#f0f0f0; opacity:0.7;">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <span style="font-size:1.2rem; cursor:pointer;">☆</span>
+          <div>
+            <div style="font-size:0.9rem; color:#999;">Overline</div>
+            <div style="font-weight:bold;">item</div>
+            <div style="font-size:0.85rem; color:#777;">Supporting line text lorem ipsum dolor sit amet, consectetur.</div>
+          </div>
+        </div>
+        <input type="checkbox" checked>
+      </div>
+    </div>
+  </section>
+  <!-- ↓↓ 여기에 추가하세요 (기존 섹션 뒤) -->
+<section id="search-keywords" class="inventory-section">
+    <div class="inventory-header">
+      <button id="open-add-btn" class="add-button">＋</button>
+      <h1 class="inventory-title">검색 키워드</h1>
+      <div class="inventory-search-wrapper">
+        <input id="keyword-input" class="inventory-search" type="text" placeholder="검색 키워드 입력">
+        <span class="search-icon" id="search-keyword-btn">🔍</span>
+      </div>
+    </div>
+    <ul class="search-list" id="keyword-list"></ul>
+  </section>
+  <section id="add-item" class="inventory-section">
+    <div class="inventory-header">
+      <h1 class="inventory-title">추가</h1>
+    </div>
+    <div class="add-form" style="margin: 2rem;">
+      <!-- ① 이름 -->
+      <label for="item-name">이름</label>
+      <input id="item-name" type="text" placeholder="이름" style="width:100%; padding:0.75rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:6px;">
+      <!-- ② 분류 -->
+      <label for="item-category">분류</label>
+      <select id="item-category" style="width:100%; padding:0.75rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:6px;">
+        <option value="all">전체</option>
+        <option value="refrigerated">냉장</option>
+        <option value="frozen">냉동</option>
+        <option value="room-temp">실온</option>
+      </select>
+      <!-- ③ 소비기한 -->
+      <label for="item-expiry">소비기한</label>
+      <input id="item-expiry" type="date" style="width:100%; padding:0.75rem; margin-bottom:1.5rem; border:1px solid #ccc; border-radius:6px;">
+      <!-- ④ 저장 버튼 -->
+      <button id="add-item-btn" style="width:100%; padding:0.75rem; background:#000; color:#fff; border:none; border-radius:6px; font-weight:bold;">
+        Add
+      </button>
+    </div>
+  </section>
+  
+  <!-- 소비기한 임박 목록 -->
+  <section id="expiring" class="inventory-section">
+    <div class="inventory-header">
+      <button class="add-button">＋</button>
+      <h1 class="inventory-title">소비기한 임박 목록</h1>
+      <div class="inventory-search-wrapper">
+        <input class="inventory-search" type="text" placeholder="Search">
+        <span class="search-icon">🔍</span>
+      </div>
+    </div>
+    <div style="background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+      <!-- expiring 아이템들만 보여주는 예시 -->
+      <!-- ...(위와 동일한 row 구조, supporting line은 빨간색으로) -->
+    </div>
+  </section>
+  
+  <!-- 즐겨찾기 -->
+  <section id="favorites" class="inventory-section">
+    <div class="inventory-header">
+      <button class="add-button">＋</button>
+      <h1 class="inventory-title">즐겨찾기</h1>
+      <div class="inventory-search-wrapper">
+        <input class="inventory-search" type="text" placeholder="Search">
+        <span class="search-icon">🔍</span>
+      </div>
+    </div>
+    <div style="background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+      <!-- favorite 아이템만 보여주는 예시 -->
+      <!-- ...(위와 동일한 row 구조) -->
+    </div>
+  </section>
+  
+  <!-- 냉동 보관 목록 -->
+  <section id="frozen" class="inventory-section">
+    <div class="inventory-header">
+      <button class="add-button">＋</button>
+      <h1 class="inventory-title">냉동 보관 목록</h1>
+      <div class="inventory-search-wrapper">
+        <input class="inventory-search" type="text" placeholder="Search">
+        <span class="search-icon">🔍</span>
+      </div>
+    </div>
+    <div style="background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+      <!-- category="냉동" 아이템 예시 -->
+      <!-- ... -->
+    </div>
+  </section>
+  
+  <!-- 냉장 보관 목록 -->
+  <section id="refrigerated" class="inventory-section">
+    <div class="inventory-header">
+      <button class="add-button">＋</button>
+      <h1 class="inventory-title">냉장 보관 목록</h1>
+      <div class="inventory-search-wrapper">
+        <input class="inventory-search" type="text" placeholder="Search">
+        <span class="search-icon">🔍</span>
+      </div>
+    </div>
+    <div style="background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+      <!-- category="냉장" 아이템 예시 -->
+      <!-- ... -->
+    </div>
+  </section>
+  
+  <!-- 실온 보관 목록 -->
+  <section id="room-temp" class="inventory-section">
+    <div class="inventory-header">
+      <button class="add-button">＋</button>
+      <h1 class="inventory-title">실온 보관 목록</h1>
+      <div class="inventory-search-wrapper">
+        <input class="inventory-search" type="text" placeholder="Search">
+        <span class="search-icon">🔍</span>
+      </div>
+    </div>
+    <div style="background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+      <!-- category="실온" 아이템 예시 -->
+      <!-- ... -->
+    </div>
+  </section>
+<!-- 기존 리스트 섹션들 아래에 추가 -->
+    <section id="add" class="inventory-section">
+    <div class="inventory-header">
+      <h1 class="inventory-title">추가</h1>
+    </div>
+    <form id="add-form">
+      <label>이름
+      <input id="add-name" type="text" placeholder="이름" required />
+    </label>
+    <label>분류
+      <select id="add-category">
+        <option value="all">전체</option>
+        <option value="refrigerated">냉장</option>
+        <option value="frozen">냉동</option>
+        <option value="room-temp">실온</option>
+      </select>
+    </label>
+    <label>소비기한
+      <input id="add-expires" type="date" required />
+    </label>
+      <button type="submit" class="add-submit">Add</button>
+    </form>
+  </section>
+  
+  
+  
+
+  <footer>
+    <div>Site name</div>
+    <div>ⓒ 2025 Created by Stuart</div>
+  </footer>
+  
+  <script src="all.js"></script>
+
+  </body>
+  </html>

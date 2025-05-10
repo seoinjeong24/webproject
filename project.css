@@ -1,0 +1,587 @@
+* { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f4f4f4; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    nav a.active {
+      background-color: #333;
+      color: #fff;
+    }
+
+    main {
+      padding: 3rem 2rem;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #333;
+     margin-bottom: 1rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);  /* 3열로 설정 */
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .about-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    /* About 페이지의 제목 h1 스타일 */
+    #about h1 {
+      font-size: 3rem; /* 글씨 크기를 4rem으로 설정 */
+      font-weight: bold;
+      color: #333;
+      margin-top: -50px; /* 위쪽 마진을 제거하여 위로 올림 */
+      margin-bottom: 1rem; /* 하단에 약간의 여백을 추가 */
+    }
+
+    #about p {
+      margin-top: 0; /* p 태그 위쪽 마진을 0으로 설정 */
+      margin-bottom: 1rem; /* p 태그 아래쪽에 약간의 여백 추가 */
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    /* 로그인 버튼은 왼쪽에, 그 아래 회원가입/피드백 버튼을 배치 */
+    .side-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
+
+    .side-buttons button {
+      background: #000;
+      color: #fff;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 500px; /* 버튼 크기 키움 */
+      
+    }
+
+    .side-buttons button:hover {
+      background-color: #444;
+    }
+
+    .side-buttons button span {
+      font-size: 1.5rem;
+      margin-left: 10px;
+    }
+
+    section { display: none; }
+    section.active { display: block; }
+
+    /* 프로필 영역 */
+    .profile-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .profile-info input {
+      border: none;
+      background: #f4f4f4;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      width: 250px;
+      border-radius: 8px;
+    }
+
+    .profile-info .welcome-message {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .profile-image {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .profile-buttons button {
+      padding: 1rem;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 200px;
+    }
+
+    .profile-buttons button:hover {
+      background-color: #444;
+    }
+    .mypage-button {
+  background: #e0e0e0;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.mypage-button:hover {
+  background: #d4d4d4;
+}
+
+.label-button {
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    border: none;
+    background-color: #eee;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .label-button.active {
+    background-color: #ccc;
+    font-weight: bold;
+  }
+  .item-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 1rem;
+  }
+  .item-card.checked {
+    background-color: #f0f0f0;
+    opacity: 0.7;
+  }
+
+  aside {
+    position: fixed;    /* 화면에 고정 */
+    top: 0;             /* 상단부터 */
+    left: 0;            /* 좌측부터 */
+    bottom: 0;          /* 하단까지 */
+    width: 280px;       /* 기존 사이드바 너비와 동일하게 */ 
+    display: none;      /* 기본은 숨김 */ 
+    background: #f1f3f4;/* 기존 배경색 유지 */ 
+    overflow-y: auto;   /* 스크롤 유지 */ 
+  }
+
+  aside.active {
+    display: block;
+  }
+
+  aside.active ~ header,
+  aside.active ~ main,
+  aside.active ~ section,
+  aside.active ~ footer {
+    margin-left: 280px;
+  }
+
+  aside h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+ 
+  .sidebar-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.25rem;
+  }
+  .sidebar-subtitle {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #777;
+    margin-bottom: 1rem;
+  }
+  
+  .nav-group .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+  .nav-group .nav-item:hover,
+  .nav-group .nav-item.active {
+    background: #e0e0e0;
+  }
+  
+  .sidebar-divider {
+    height: 1px;
+    background: #ccc;
+    margin: 1rem 0;
+  }
+  
+  .sidebar-heading {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #777;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 0.25rem;
+  }
+  .menu-item.active {
+    background: #ddd;
+  }
+  .menu-item .material-icons {
+    font-size: 1rem;
+    color: #555;
+  }
+  .menu-item .badge {
+    margin-left: auto;
+    background: #ccc;
+    border-radius: 12px;
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+
+    .menu-item {
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .menu-item.active {
+      background: #ccc;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      padding: 0rem;
+    }
+
+    /* ————————————— */
+/* Inventory 전용 스타일 */
+/* ————————————— */
+.inventory-section {
+  display: none;
+  flex: 1;
+  background: #fff;
+  overflow: auto;
+}
+.inventory-section.active { display:block; }
+
+/* 헤더: + 버튼, 제목, 검색창 */
+.inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* + 버튼 */
+.add-button {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+/* 제목 */
+.inventory-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* 검색창 래퍼 */
+.inventory-search-wrapper {
+  position: relative;
+}
+
+/* 검색 input */
+.inventory-search {
+  width: 18rem;
+  padding: 0.5rem 1rem;
+  padding-right: 2.5rem;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* 돋보기 아이콘 */
+.inventory-search-wrapper .search-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: #888;
+}
+
+/* 아이템 리스트 */
+#item-list {
+  margin: 0 2rem 2rem;
+}
+
+    section { display: none; }
+    section.active { display: block; }
+
+    /* ————————————— */
+/* 추가 페이지 전용 스타일 */
+/* ————————————— */
+section#add.inventory-section {
+    display: none;
+    flex: 1;
+    background: #fff;
+    overflow: auto;
+  }
+  section#add.inventory-section.active { display: block; }
+  
+  /* 헤더: 제목만 가운데 정렬 */
+  section#add .inventory-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  /* 제목 */
+  section#add .inventory-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* 폼 레이아웃 */
+  #add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 2rem 2rem;
+  }
+  
+  /* 각 라벨 행 */
+  #add-form label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  /* 입력, 셀렉트 박스 */
+  #add-form input,
+  #add-form select {
+    flex: 1;
+    margin-left: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  /* 제출 버튼 */
+  .add-submit {
+    margin-top: 2rem;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .add-submit:hover {
+    background: #444;
+  }
+  /* —————— 검색 페이지 —————— */
+section#search.inventory-section {
+    display: none;
+    flex: 1;
+    background: #fff;
+    overflow-y: auto;
+  }
+  section#search.inventory-section.active {
+    display: block;
+  }
+  
+  /* 헤더: 제목 중앙 정렬 */
+  section#search .inventory-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  section#search .inventory-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* 검색 입력창 */
+  #search-form {
+    position: relative;
+    max-width: 400px;
+    margin: 0 2rem 2rem;
+    display: flex;
+  }
+  #search-form input {
+    width: 100%;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  #search-form .search-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    color: #999;
+    cursor: pointer;
+  }
+  
+  /* 키워드 리스트 */
+  .search-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 2rem;
+  }
+  .search-list .keyword-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  .keyword-item .keyword-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .keyword-item .keyword-title {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .keyword-item .keyword-meta {
+    font-size: 0.875rem;
+    color: #777;
+    margin-top: 0.25rem;
+  }
+/* === [추가] 검색 키워드 페이지 === */
+section#search-keywords.inventory-section { display:none; flex:1; overflow-y:auto; }
+section#search-keywords.inventory-section.active { display:block; }
+
+.search-list { list-style:none; padding:0; margin:0 2rem; }
+.keyword-item {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:1rem 0; border-bottom:1px solid #eee;
+}
+.keyword-info { display:flex; flex-direction:column; }
+.keyword-title { font-size:1rem; font-weight:500; }
+.keyword-meta { font-size:0.875rem; color:#777; margin-top:0.25rem; }
+
