@@ -1,141 +1,67 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About | 1인 가구 식재료 관리</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: #fff;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | 1인 가구 식재료 관리</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Site name</div>
+      <nav>
+        <a href="main.html">Main</a>
+        <a href="map.html">Map</a>
+        <a href="mypage.html">My Page</a>
+      </nav>
+    </header>
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid #ccc;
-    }
+    <main>
+      <div class="about-text">
+        <h1>About</h1>
+        <p class="sub-intro">
+          간단하면서도 실용적인 서비스를 통해 1인 가구의 삶의 질 향상을 목표로
+          합니다.
+        </p>
+        <div class="introduction">
+          <p>
+            &nbsp;&nbsp;잊고 계신 건 없나요? 예를 들자면 냉장고 구석에서
+            방치되고 있는 당근이나 양배추 말이죠.
+          </p>
+          <p>
+            &nbsp;&nbsp;1인 가구가 늘어나는 현대 사회에서, 생필품과 식재료의
+            소비기한을 관리하는 것은 잊히기 쉬운 과제가 되었습니다. 특히 바쁜
+            일상 속에서, 냉장·냉동·실온 별로 품목들의 소비기한을 일일이 확인하는
+            것은 번거롭고 까다롭습니다.
+          </p>
+          <p>
+            &nbsp;&nbsp;그래서 저희는 생필품 및 식재료의 소비기한을 쉽고
+            편리하게 관리할 수 있는 웹사이트를 개발했습니다. 더 이상 곰팡이가 핀
+            과일도, 썩어가는 식재료도 마주칠 일이 없을 겁니다. 사용자는 손쉽게
+            품목을 등록하고, 소비기한이 다가오는 품목을 확인할 수 있습니다.
+          </p>
+          <p>
+            &nbsp;&nbsp;우리 웹시설 3팀은 건강한 1인 가구의 삶을 응원합니다!
+          </p>
+        </div>
+      </div>
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
+      <div class="side-buttons">
+        <button type="button" onclick="location.href='login.html'">
+          Sign in <span>→</span>
+        </button>
+        <button type="button" onclick="location.href='signup.html'">
+          Sign up <span>→</span>
+        </button>
+        <button type="button" onclick="location.href='contact.html'">
+          Feedback <span>→</span>
+        </button>
+      </div>
+    </main>
 
-    nav a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #000;
-      font-weight: 500;
-    }
-
-    main {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 3rem 2rem;
-      gap: 4rem;
-    }
-
-    .about-text {
-      flex: 1;
-      max-width: 700px;
-    }
-
-    .about-text h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      margin: 0 0 1rem 0;
-    }
-
-    .about-text .sub-intro {
-      font-size: 1rem;
-      color: #666;
-      font-weight: 500;
-      margin-bottom: 2rem;
-    }
-
-    .about-text p {
-      white-space: pre-wrap; /* 공백 및 줄바꿈 유지 */
-      font-size: 1.1rem;
-      line-height: 1.9;
-      color: #333;
-      margin-bottom: 1.2rem;
-    }
-
-    .side-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      align-items: flex-end;
-      padding-top: 2.4rem;
-    }
-
-    .side-buttons button {
-      background: #000;
-      color: #fff;
-      border: none;
-      padding: 1.5rem 2.5rem;
-      font-size: 1.4rem;
-      border-radius: 10px;
-      cursor: pointer;
-      width: 400px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.2s;
-    }
-
-    .side-buttons button:hover {
-      background: #444;
-    }
-
-    .side-buttons button span {
-      font-size: 1.8rem;
-    }
-
-    footer {
-      text-align: left;
-      padding: 2rem;
-      border-top: 1px solid #ccc;
-      font-size: 0.9rem;
-      color: #666;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="logo">Site name</div>
-    <nav>
-      <a href="#">Main</a>
-      <a href="#">Map</a>
-      <a href="#">My Page</a>
-    </nav>
-  </header>
-
-  <main>
-    <div class="about-text">
-      <h1>About</h1>
-      <p class="sub-intro">간단하면서도 실용적인 서비스를 통해 1인 가구의 삶의 질 향상을 목표로 합니다.</p>
-
-      <p>  잊고 계신 건 없나요? 예를 들자면 냉장고 구석에서 방치되고 있는 당근이나 양배추 말이죠.</p>
-      <p>  1인 가구가 늘어나는 현대 사회에서, 생필품과 식재료의 소비기한을 관리하는 것은 잊히기 쉬운 과제가 되었습니다. 특히 바쁜 일상 속에서, 냉장·냉동·실온 별로 품목들의 소비기한을 일일이 확인하는 것은 번거롭고 까다롭습니다.</p>
-      <p>  그래서 저희는 생필품 및 식재료의 소비기한을 쉽고 편리하게 관리할 수 있는 웹사이트를 개발했습니다. 더 이상 곰팡이가 핀 과일도, 썩어가는 식재료도 마주칠 일이 없을 겁니다. 사용자는 손쉽게 품목을 등록하고, 소비기한이 다가오는 품목을 확인할 수 있습니다.</p>
-      <p>  우리 웹시설 3팀은 건강한 1인 가구의 삶을 응원합니다!</p>
-    </div>
-
-    <div class="side-buttons">
-      <button>Sign in <span>→</span></button>
-      <button>Sign up <span>→</span></button>
-      <button>Feedback <span>→</span></button>
-    </div>
-  </main>
-
-  <footer>
-    Site name<br/>
-    ⓒ 2025 Created by Stuart
-  </footer>
-</body>
+    <footer>
+      Site name<br />
+      ⓒ 2025 Created by Stuart
+    </footer>
+  </body>
 </html>

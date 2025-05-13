@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>로그인</title>
-  <link rel="stylesheet" href="login.css">
-</head>
-<body>
-  <div class="login-box">
-    <h1>Sign in</h1>
-    <input id="login-id" type="text" placeholder="Enter your id" />
-    <input id="login-password" type="password" placeholder="Enter your password" />
-    <div style="text-align:center; margin-top:1rem;">
-      <a href="signup.html" style="color:#444; text-decoration:underline; font-size:0.9rem;">Sign up</a>
-    </div>
-    <button onclick="performLogin()">Sign in</button>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo" onclick="navigateTo('index.html')">Site name</div>
+      <nav>
+        <a href="main.html">Main</a>
+        <a href="map.html">Map</a>
+        <a href="mypage.html">My Page</a>
+      </nav>
+    </header>
 
-  <script src="login.js"></script>
-</body>
+    <div class="login-box">
+      <h1>Sign in</h1>
+      ID
+      <input id="login-id" type="text" placeholder="Enter your id" />
+      Password
+      <input
+        id="login-password"
+        type="password"
+        placeholder="Enter your password"
+      />
+      <div id="signup" onclick="navigateTo('signup.html')">Sign up</div>
+      <button onclick="performLogin()">Sign in</button>
+    </div>
+
+    <script src="login.js"></script>
+  </body>
 </html>
