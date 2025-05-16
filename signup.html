@@ -16,27 +16,34 @@
       </nav>
     </header>
 
-    <div class="signup-box">
-      <h1>Sign up</h1>
-      Username
-      <input
-        id="signup-username"
-        type="text"
-        placeholder="Enter your username"
-      />
-      ID
-      <input id="signup-id" type="text" placeholder="Enter your id" />
-      Password
-      <input
-        id="signup-password"
-        type="password"
-        placeholder="Enter your password"
-      />
-      <div style="text-align: center; margin-top: 1rem">
-        <div id="login" onclick="navigateTo('login.html')">Sign in</div>
+    <main>
+      <div class="signup-box">
+        <h1>Sign up</h1>
+        Username
+        <input
+          id="signup-username"
+          type="text"
+          placeholder="Enter your username"
+        />
+        ID
+        <input id="signup-id" type="text" placeholder="Enter your id" />
+        Password
+        <input
+          id="signup-password"
+          type="password"
+          placeholder="Enter your password"
+        />
+        <div style="text-align: center; margin-top: 1rem">
+          <div id="login" onclick="navigateTo('login.html')">Sign in</div>
+        </div>
+        <button onclick="createAccount()">Create Account</button>
       </div>
-      <button onclick="createAccount()">Create Account</button>
-    </div>
+    </main>
+
+    <footer>
+      <div>Site name</div>
+      <div>ⓒ 2025 Created by Stuart</div>
+    </footer>
 
     <script src="signup.js"></script>
   </body>

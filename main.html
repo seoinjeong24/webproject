@@ -1,62 +1,64 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Main Page</title>
-  <link rel="stylesheet" href="main.css">
-</head>
-<body>
-  <header>
-    <div class="logo" onclick="navigateTo('main')">Site name</div>
-    <nav id="nav-links">
-      <a id="nav-main" href="#" onclick="navigateTo('main')">Main</a>
-      <a id="nav-map" href="#" onclick="navigateTo('map')">Map</a>
-      <a id="nav-mypage" href="#" onclick="navigateTo('mypage')">My Page</a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Page</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo" onclick="navigateTo('index.html')">Site name</div>
+      <nav id="nav-links">
+        <a id="nav-main" href="#" onclick="navigateTo('main.html')">Main</a>
+        <a id="nav-map" href="#" onclick="navigateTo('map.html')">Map</a>
+        <a id="nav-mypage" href="#" onclick="navigateTo('mypage.html')"
+          >My Page</a
+        >
+      </nav>
+    </header>
 
-  <main>
-    <h1>Main</h1>
-    <div class="card-grid">
-      <div class="card" onclick="navigateTo('favorites')">
-        <div class="icon">⭐</div>
-        <h3>즐겨찾기</h3>
-        <p>즐겨찾기한 식재료를 한 눈에 확인할 수 있습니다.</p>
+    <main>
+      <h1>Main</h1>
+      <div class="card-grid">
+        <div class="card" onclick="navigateTo('favorites')">
+          <div class="icon">⭐</div>
+          <h3>즐겨찾기</h3>
+          <p>즐겨찾기한 식재료를 한 눈에 확인할 수 있습니다.</p>
+        </div>
+        <div class="card" onclick="navigateTo('expiring')">
+          <div class="icon">⚠️</div>
+          <h3>소비 기한 임박</h3>
+          <p>소비기한이 얼마 남지 않은 품목들을 모아서 보여줍니다.</p>
+        </div>
+        <div class="card" onclick="navigateTo('all-items')">
+          <div class="icon">ℹ️</div>
+          <h3>전체 목록</h3>
+          <p>등록된 전체 식재료를 확인할 수 있습니다.</p>
+        </div>
+        <div class="card" onclick="navigateTo('frozen')">
+          <div class="icon">❄️</div>
+          <h3>냉동 보관 목록</h3>
+          <p>냉동 상태로 보관 중인 식재료 목록입니다.</p>
+        </div>
+        <div class="card" onclick="navigateTo('refrigerated')">
+          <div class="icon">🧊</div>
+          <h3>냉장 보관 목록</h3>
+          <p>냉장 상태로 보관 중인 식재료 목록입니다.</p>
+        </div>
+        <div class="card" onclick="navigateTo('room-temp')">
+          <div class="icon">🏠</div>
+          <h3>실온 보관 목록</h3>
+          <p>실온 보관 중인 식재료들을 확인할 수 있습니다.</p>
+        </div>
       </div>
-      <div class="card" onclick="navigateTo('expiring')">
-        <div class="icon">⚠️</div>
-        <h3>소비 기한 임박</h3>
-        <p>소비기한이 얼마 남지 않은 품목들을 모아서 보여줍니다.</p>
-      </div>
-      <div class="card" onclick="navigateTo('all-items')">
-        <div class="icon">ℹ️</div>
-        <h3>전체 목록</h3>
-        <p>등록된 전체 식재료를 확인할 수 있습니다.</p>
-      </div>
-      <div class="card" onclick="navigateTo('frozen')">
-        <div class="icon">❄️</div>
-        <h3>냉동 보관 목록</h3>
-        <p>냉동 상태로 보관 중인 식재료 목록입니다.</p>
-      </div>
-      <div class="card" onclick="navigateTo('refrigerated')">
-        <div class="icon">🧊</div>
-        <h3>냉장 보관 목록</h3>
-        <p>냉장 상태로 보관 중인 식재료 목록입니다.</p>
-      </div>
-      <div class="card" onclick="navigateTo('room-temp')">
-        <div class="icon">🏠</div>
-        <h3>실온 보관 목록</h3>
-        <p>실온 보관 중인 식재료들을 확인할 수 있습니다.</p>
-      </div>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <div>Site name</div>
-    <div>ⓒ 2025 Created by Stuart</div>
-  </footer>
+    <footer>
+      <div>Site name</div>
+      <div>ⓒ 2025 Created by Stuart</div>
+    </footer>
 
-  <script src="main.js"></script>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>
