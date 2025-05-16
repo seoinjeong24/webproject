@@ -12,6 +12,10 @@ header {
   border-bottom: 1px solid #ccc;
 }
 
+main {
+  margin-bottom: 20%;
+}
+
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
@@ -71,4 +75,12 @@ h1 {
   margin: 10px;
   color: #444;
   text-decoration: underline;
+}
+
+footer {
+  text-align: left;
+  padding: 2rem;
+  border-top: 1px solid #ccc;
+  font-size: 0.9rem;
+  color: #666;
 }
