@@ -1,0 +1,87 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #fff;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+main {
+  margin-bottom: 20%;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.signup-box {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.signup-box input {
+  margin: auto;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 60%;
+  background: #000;
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 30px auto;
+}
+
+#login {
+  font-size: 0.9em;
+  text-align: center;
+  margin: 10px;
+  color: #444;
+  text-decoration: underline;
+}
+
+footer {
+  text-align: left;
+  padding: 2rem;
+  border-top: 1px solid #ccc;
+  font-size: 0.9rem;
+  color: #666;
+}
