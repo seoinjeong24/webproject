@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo" onclick="navigateTo('index.html')">Site name</div>
+      <nav>
+        <a href="main.html">Main</a>
+        <a href="map.html">Map</a>
+        <a href="mypage.html">My Page</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="signup-box">
+        <h1>Sign up</h1>
+        Username
+        <input
+          id="signup-username"
+          type="text"
+          placeholder="Enter your username"
+        />
+        ID
+        <input id="signup-id" type="text" placeholder="Enter your id" />
+        Password
+        <input
+          id="signup-password"
+          type="password"
+          placeholder="Enter your password"
+        />
+        <div style="text-align: center; margin-top: 1rem">
+          <div id="login" onclick="navigateTo('login.html')">Sign in</div>
+        </div>
+        <button onclick="createAccount()">Create Account</button>
+      </div>
+    </main>
+
+    <footer>
+      <div>Site name</div>
+      <div>ⓒ 2025 Created by Stuart</div>
+    </footer>
+
+    <script src="signup.js"></script>
+  </body>
+</html>

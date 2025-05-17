@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Page</title>
+    <link rel="stylesheet" href="mypage.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo" onclick="navigateTo('index.html')">Site name</div>
+      <nav id="nav-links">
+        <a id="nav-main" href="#" onclick="navigateTo('main.html')">Main</a>
+        <a id="nav-map" href="#" onclick="navigateTo('map.html')">Map</a>
+        <a id="nav-mypage" href="#" onclick="navigateTo('mypage.html')"
+          >My Page</a
+        >
+      </nav>
+    </header>
+
+    <main>
+      <h1>My Page</h1>
+      <div class="mypage-container">
+        <div class="profile-section">
+          <div class="profile-image">
+            <span>👤</span>
+          </div>
+          <div class="profile-info">
+            <label for="username">Username</label>
+            <input id="username" type="text" disabled placeholder="Username" />
+            <label for="id">ID</label>
+            <input id="id" type="text" disabled placeholder="ID" />
+          </div>
+        </div>
+        <div class="menu">
+          <div class="menu-item" onclick="navigateTo('favorites')">
+            즐겨찾기
+          </div>
+          <div class="menu-item" onclick="navigateTo('expiring')">
+            소비 기한 임박 목록
+          </div>
+          <div class="menu-item" onclick="navigateTo('all-items')">
+            전체 보관 목록
+          </div>
+          <div class="menu-item" onclick="navigateTo('frozen')">
+            냉동 보관 목록
+          </div>
+          <div class="menu-item" onclick="navigateTo('refrigerated')">
+            냉장 보관 목록
+          </div>
+          <div class="menu-item" onclick="navigateTo('room-temp')">
+            실온 보관 목록
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div>Site name</div>
+      <div>ⓒ 2025 Created by Stuart</div>
+    </footer>
+
+    <script src="mypage.js"></script>
+  </body>
+</html>

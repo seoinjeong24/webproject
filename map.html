@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map</title>
+    <link rel="stylesheet" href="map.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo" onclick="navigateTo('index.html')">Site name</div>
+      <nav id="nav-links">
+        <a id="nav-main" href="#" onclick="navigateTo('main.html')">Main</a>
+        <a id="nav-map" href="#" onclick="navigateTo('map.html')">Map</a>
+        <a id="nav-mypage" href="#" onclick="navigateTo('mypage.html')"
+          >My Page</a
+        >
+      </nav>
+    </header>
+
+    <main>
+      <h1>Map</h1>
+      <div class="map-content">
+        <div class="store-list">
+          <div class="store-item">
+            <strong>마트 이름</strong>
+            <div>주소</div>
+          </div>
+          <div class="store-item">
+            <strong>마트 이름</strong>
+            <div>주소</div>
+          </div>
+          <div class="store-item">
+            <strong>마트 이름</strong>
+            <div>주소</div>
+          </div>
+          <div class="store-item">
+            <strong>마트 이름</strong>
+            <div>주소</div>
+          </div>
+        </div>
+        <div class="map-container">
+          <img src="map-icon.png" alt="Map Icon" class="map-image" />
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div>Site name</div>
+      <div>ⓒ 2025 Created by Stuart</div>
+    </footer>
+
+    <script src="map.js"></script>
+  </body>
+</html>

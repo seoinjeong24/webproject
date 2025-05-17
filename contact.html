@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact us</title>
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo" onclick="navigateTo('index.html')">Site name</div>
+      <nav id="nav-links">
+        <a id="nav-main" onclick="navigateTo('main.html')">Main</a>
+        <a id="nav-map" onclick="navigateTo('map.html')">Map</a>
+        <a id="nav-mypage" onclick="navigateTo('mypage.html')">My Page</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Contact us</h1>
+      <div class="form-container">
+        <div class="form-group">
+          <label for="email">Your Email address</label>
+          <textarea
+            id="email"
+            placeholder="email@janesfakedomain.net"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="message">Your message</label>
+          <textarea
+            id="message"
+            placeholder="Enter your question or message"
+          ></textarea>
+        </div>
+        <button onclick="submitForm()">Submit</button>
+      </div>
+    </main>
+
+    <footer>
+      <div>Site name</div>
+      <div>ⓒ 2025 Created by Stuart</div>
+    </footer>
+
+    <script src="contact.js"></script>
+  </body>
+</html>
