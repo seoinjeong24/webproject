@@ -19,7 +19,7 @@ public class SecurityConfig {
                 .formLogin(form -> form.disable())
                 .logout(logout -> logout.disable())
 
-                // ✅ 회원가입 관련 경로만 열기
+                // 회원가입 관련 경로만 열기
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/signup.html",
