@@ -301,15 +301,8 @@ input[type="checkbox"] {
   font-size: 0.875rem;
   line-height: 1.6;
 }
-/* Footer */
-footer {
-  padding: 1rem 2rem;
-  border-top: 1px solid #e0e0e0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.875rem;
-}
+
+
 .social-icons {
   display: flex;
   gap: 0.5rem;
