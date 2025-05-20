@@ -363,7 +363,7 @@ input[type="checkbox"] {
     }
     menuItems.forEach(el => el.addEventListener('click', () => showPage(el.dataset.section)));
     headerLinks.forEach(el => el.addEventListener('click', e => { e.preventDefault(); showPage(el.dataset.section); }));
-    showPage('main');
+    showPage('room-temp');
 
     // 돋보기 버튼 클릭 시 검색 기능 실행
 document.getElementById('searchButton').addEventListener('click', searchItems);  // 돋보기 버튼 클릭 시 검색 실행

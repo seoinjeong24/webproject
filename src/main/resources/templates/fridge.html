@@ -74,7 +74,7 @@
         <div class="list-item"><i class="material-icons">star</i><div class="item-text"><span class="storage">냉동</span><span class="name">아이스크림</span><span class="expiry">~ 2025.07.15</span></div><input type="checkbox" checked></div>
       </div>
     </div>
-    <div id="refrigerated" class="page">
+  <div id="refrigerated" class="page">
   <h2>냉장 보관 목록</h2>
   <div class="list-container">
     <div class="list-item">
@@ -222,7 +222,7 @@
     }
     menuItems.forEach(el => el.addEventListener('click', () => showPage(el.dataset.section)));
     headerLinks.forEach(el => el.addEventListener('click', e => { e.preventDefault(); showPage(el.dataset.section); }));
-    showPage('main');
+    showPage('refrigerated');
 
     // 돋보기 버튼 클릭 시 검색 기능 실행
 document.getElementById('searchButton').addEventListener('click', searchItems);  // 돋보기 버튼 클릭 시 검색 실행
