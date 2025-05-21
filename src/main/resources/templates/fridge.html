@@ -222,6 +222,10 @@
     }
     menuItems.forEach(el => el.addEventListener('click', () => showPage(el.dataset.section)));
     headerLinks.forEach(el => el.addEventListener('click', e => { e.preventDefault(); showPage(el.dataset.section); }));
+    document.querySelector('.nav-item[data-section="about"]').addEventListener('click', () => {
+    window.location.href = '../static/index.html';});
+    document.querySelector('.nav-item[data-section="feedback"]').addEventListener('click', () => {
+    window.location.href = '../static/contact.html';});
     showPage('refrigerated');
 
     // 돋보기 버튼 클릭 시 검색 기능 실행
