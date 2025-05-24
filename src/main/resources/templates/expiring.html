@@ -39,9 +39,9 @@
     <header>
       <span class="header-title">Site name</span>
       <nav class="header-nav">
-        <a href="#" data-section="main">Main</a>
-        <a href="#" data-section="map">Map</a>
-        <a href="#" data-section="my-page">My Page</a>
+        <a href="..\static\main.html">Main</a>
+        <a href="..\static\map.html">Map</a>
+        <a href="..\static\mypage.html">My Page</a>
       </nav>
       <div class="header-actions">
         <div class="btn-circle" data-section="add"><i class="material-icons">add</i></div>
@@ -221,7 +221,7 @@
       headerLinks.forEach(h => h.dataset.section === id ? h.classList.add('active') : h.classList.remove('active'));
     }
     menuItems.forEach(el => el.addEventListener('click', () => showPage(el.dataset.section)));
-    headerLinks.forEach(el => el.addEventListener('click', e => { e.preventDefault(); showPage(el.dataset.section); }));
+    
     document.querySelector('.nav-item[data-section="about"]').addEventListener('click', () => {
     window.location.href = '../static/index.html';});
     document.querySelector('.nav-item[data-section="feedback"]').addEventListener('click', () => {
