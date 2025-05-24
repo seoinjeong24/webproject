@@ -1,204 +1,251 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body {
-  display: grid;
-  /* 좌측 메뉴, header, container 위치 조정 -> footer 추가 하기로 했었나...? */
-  grid-template-columns: 280px 1fr;
-  grid-template-rows: auto 1fr;
-  grid-template-areas:
-    "sidebar header"
-    "sidebar main";
-  height: 100vh;
-  font-family: "Noto Sans KR", sans-serif;
-  background-color: #fff;
-  color: #111;
-}
+    body {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      grid-template-rows: auto 1fr;
+      grid-template-areas:
+        "sidebar header"
+        "sidebar main";
+      height: 100vh;
+      font-family: "Noto Sans KR", sans-serif;
+      background-color: #fff;
+      color: #111;
+    }
 
-/* header */
-header {
-  grid-area: header;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid #e0e0e0;
-  background: white;
-}
-.header-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-}
-.header-nav {
-  display: flex;
-  gap: 1.5rem;
-}
-.header-nav a {
-  font-size: 0.875rem;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  color: #333;
-}
-.header-nav a.active {
-  background: #000;
-  color: #fff;
-}
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
+    /* Header */
+    header {
+      grid-area: header;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #e0e0e0;
+      background: white;
+    }
 
-.btn-circle {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #f1f3f4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-.btn-circle .material-icons {
-  font-size: 24px;
-  color: #333;
-}
-.search-box {
-  position: relative;
-}
-.search-box input {
-  padding: 0.5rem 2.5rem 0.5rem 1rem;
-  border-radius: 9999px;
-}
-.search-box .material-icons {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  color: #757575;
-}
+    .header-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
 
-/* aside */
-aside {
-  grid-area: sidebar;
-  background: #f1f3f4;
-  padding: 1.5rem;
-  overflow-y: auto;
-}
-.sidebar-subtitle {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #777;
-  margin: 1rem 0 0.5rem;
-}
-.nav-group {
-  display: flex;
-  flex-direction: column;
-}
-.nav-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 1rem;
-  border-radius: 9999px;
-  cursor: pointer;
-  color: #333;
-  font-size: 0.875rem;
-  user-select: none;
-}
-.nav-item:hover,
-.nav-item.active {
-  background: #cfd8dc;
-}
-.nav-item .material-icons {
-  font-size: 1rem;
-  color: #555;
-}
-.badge {
-  margin-left: auto;
-  background: #757575;
-  color: #fff;
-  font-size: 0.75rem;
-  padding: 0 0.5rem;
-  border-radius: 12px;
-}
-hr {
-  border: none;
-  border-top: 1px solid #e0e0e0;
-  margin: 1rem 0;
-}
+    .header-nav {
+      display: flex;
+      gap: 1.5rem;
+    }
 
-/* container */
-.container {
-  grid-area: main;
-  padding: 2rem;
-  overflow-y: auto;
-  background: white;
-}
+    .header-nav a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      color: #333;
+      text-decoration: none;
+    }
 
-h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-/* List */
-.list-item {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  background: #f9f9f9;
-  border: 1px solid #e0e0e0;
-}
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
-/* 별 아이콘 정렬 */
-.list-item .material-icons {
-  font-size: 20px;
-  color: #333;
-  justify-self: center;
-  font-family: "Material Icons";
-  font-style: normal;
-}
+    /* Sidebar */
+    aside {
+      grid-area: sidebar;
+      background: #f1f3f4;
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
 
-/* 체크박스 정렬 */
-.list-item input[type="checkbox"] {
-  justify-self: end;
-  width: 16px;
-  height: 16px;
-}
+    .sidebar-subtitle {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #777;
+      margin: 1rem 0 0.5rem;
+    }
 
-/* 텍스트 묶음 (가운데) */
-.item-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  flex: 1;
-}
-.item-text .name {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #111;
-}
-.item-text .support {
-  font-size: 0.75rem;
-  color: #e53935;
-}
-.item-text .storage,
-.item-text .expiry {
-  font-size: 0.75rem;
-  color: #757575;
-}
-.list-item:hover {
-  background: #f0f0f0;
-}
-.list-container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
+    .nav-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      color: #333;
+      gap: 0.5rem;
+    }
+
+    .nav-item.active {
+      background-color: #cfd8dc;
+    }
+
+    .nav-item .material-icons {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .badge {
+      margin-left: auto;
+      background: #757575;
+      color: white;
+      font-size: 0.75rem;
+      padding: 0 0.5rem;
+      border-radius: 9999px;
+    }
+
+    /* Main */
+    .container {
+      grid-area: main;
+      padding: 2rem;
+      overflow-y: auto;
+      background: white;
+    }
+
+    .container h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* List */
+    .list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .list-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 8px;
+      background: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      gap: 1rem;
+    }
+
+    /* 기본 구조 */
+    .storage-status {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      color: white;
+      width: fit-content;
+    }
+
+    /* 상태별 색상은 아래에서 확실하게 덮어쓰기 */
+    .storage-status.frozen {
+      background-color: #00bcd4;
+      /* 냉동: 시원한 파랑 */
+    }
+
+    .storage-status.refrigerated {
+      background-color: #4caf50;
+      /* 냉장: 신선한 초록 */
+    }
+
+    .storage-status.ambient {
+      background-color: #ff9800;
+      /* 실온: 따뜻한 오렌지 */
+    }
+
+    .item-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .item-text .name {
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .item-text .expiry {
+      font-size: 0.75rem;
+      color: #777;
+    }
+
+    .list-item i.material-icons {
+      font-size: 20px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .list-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .item-text .support {
+      font-size: 0.7rem;
+      /* 계란(name)보다 작게 */
+      color: #e53935;
+      /* 진한 빨강 */
+      font-weight: 500;
+    }
+
+    /* 추가 + 검색창 전체 래핑 */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* 추가 버튼 (동그란 버튼 안에 + 아이콘) */
+    .btn-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #000;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn-circle:hover {
+      background-color: #333;
+    }
+
+    .btn-circle .material-icons {
+      font-size: 24px;
+    }
+
+    /* 검색창 */
+    .search-box {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 0.25rem 0.5rem;
+      background-color: white;
+    }
+
+    .search-box input[type="text"] {
+      border: none;
+      outline: none;
+      font-size: 0.9rem;
+      color: #333;
+      width: 150px;
+    }
+
+    .search-box .material-icons {
+      font-size: 20px;
+      color: #333;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
