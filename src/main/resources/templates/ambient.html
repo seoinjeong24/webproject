@@ -1,396 +1,131 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1인 가구 식재료 관리</title>
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="..\static\css\list.css" />
-  <!-- <style>
-    /* Reset */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { display: flex; font-family: 'Noto Sans KR', sans-serif; background: #fff; color: #111; height: 100vh; }
-    /* Sidebar */
-    aside { width: 280px; background: #F1F3F4; padding: 1.5rem; overflow-y: auto; }
-    .sidebar-title { font-size: .875rem; font-weight: 600; color: #555; margin-bottom: .75rem; }
-    .sidebar-subtitle { font-size: .75rem; font-weight: 500; color: #777; margin: 1rem 0 .5rem; }
-    .nav-group { display: flex; flex-direction: column; }
-    .nav-item { display: flex; align-items: center; gap: .75rem; padding: .5rem 1rem; border-radius: 9999px; cursor: pointer; color: #333; font-size: .875rem; }
-    .nav-item:hover, .nav-item.active { background: #CFD8DC; }
-    .nav-item .material-icons { font-size: 1rem; color: #555; }
-    .badge { margin-left: auto; background: #757575; color: #fff; font-size: .75rem; padding: 0 .5rem; border-radius: 12px; }
-    hr { border: none; border-top: 1px solid #E0E0E0; margin: 1rem 0; }
-    /* Container */
-    .container { flex: 1; display: flex; flex-direction: column; }
-    header { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 2rem; border-bottom: 1px solid #E0E0E0; }
-    .header-title { font-size: 1.125rem; font-weight: 600; }
-    .header-nav { display: flex; gap: 1.5rem; }
-    .header-nav a { font-size: .875rem; font-weight: 500; padding: .5rem 1rem; border-radius: 6px; color: #333; }
-    .header-nav a.active { background: #000; color: #fff; }
-    .header-actions { display: flex; align-items: center; gap: 1rem; }
-    .btn-circle { width: 36px; height: 36px; border-radius: 50%; background: #F1F3F4; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; }
-    .btn-circle .material-icons { font-size: 24px; color: #333; }
-    .search-box { position: relative; }
-    .search-box input { padding: .5rem 2.5rem .5rem 1rem; width: 200px; border: 1px solid #CCC; border-radius: 24px; font-size: .875rem; }
-    .search-box .material-icons { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 20px; color: #757575; }
-    /* Page */
-    .page { display: none; flex: 1; overflow-y: auto; padding: 2rem; }
-    .page.active { display: block; }
-    .page h2 { font-size: 2rem; margin-bottom: 1.5rem; }
-    /* List */
-    .list-container { display: flex; flex-direction: column; gap: 1rem; }
-    .list-item {display: flex; justify-content: space-between;justify-content: flex-start;}
-    .list-item .material-icons { font-size: 20px; color: #333; justify-self: center; }
-    .item-text { display: flex; flex-direction: column; gap: .25rem; }
-    .item-text .storage { font-size: .75rem; color: #888; }
-    .item-text .name { font-size: .875rem; font-weight: 500; }
-    .item-text .support { font-size: .75rem; color: #EF5350; }
-    .item-text .expiry { font-size: .75rem; color: #555; }
-    input[type="checkbox"] { width: 16px; height: 16px; margin-left: auto;}
-    /* Form */
-    .form-container { max-width: 500px; display: flex; flex-direction: column; gap: 1rem; }
-    .form-row { display: flex; align-items: center; position: relative; }
-    .form-row label { width: 80px; font-size: .875rem; color: #333; }
-    .form-row input, .form-row select { flex: 1; padding: .5rem 1rem; font-size: .875rem; border: 1px solid #CCC; border-radius: 6px; }
-    .form-row .material-icons { position: absolute; right: 8px; font-size: 20px; color: #757575; pointer-events: none; }
-    .btn-add { margin-top: 2rem; padding: .75rem 0; background: #000; color: #fff; font-size: .875rem; font-weight: 500; border-radius: 6px; text-align: center; cursor: pointer; }
-    /* Map placeholder */
-    #map-container { width: 100%; height: 400px; background: #e5e5e5; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #777; }
-    /* Footer */
-    footer { padding: 1rem 2rem; border-top: 1px solid #E0E0E0; display: flex; align-items: center; justify-content: space-between; font-size: .875rem; }
-    .social-icons { display: flex; gap: .5rem; }
-    .social-icons .material-icons { font-size: 20px; color: #555; cursor: pointer; }
-    /* 보관 상태 */
-.storage-status {
-  font-size: .875rem;
-  font-weight: 500;
-  color: #fff;
-  padding: .25rem .5rem;
-  border-radius: 6px;
-  margin-bottom: .5rem;
-  text-align: center;
-  width: fit-content;
-  margin-right: 1rem;
-  background-color: #CFD8DC;
-}
-
-.refrigerated {
-  background-color: #81C784; /* 냉장 상태 */
-}
-
-.frozen {
-  background-color: #64B5F6; /* 냉동 상태 */
-}
-
-.room-temp {
-  background-color: #FFB74D; /* 실온 상태 */
-}
-
-/* 목록 항목 */
-.list-container { display: flex; flex-direction: column; gap: 1rem; }
-.list-item {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  background: #fff;
-  border-radius: 6px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-  margin-bottom: 1rem;
-}
-
-.list-item i.material-icons {
-  font-size: 20px;
-  color: #333;
-  justify-self: center;
-}
-
-.item-text {
-  display: flex;
-  flex-direction: column;
-  gap: .25rem;
-}
-
-.item-text .name {
-  font-size: .875rem;
-  font-weight: 500;
-}
-
-.item-text .expiry {
-  font-size: .75rem;
-  color: #555;
-}
-
-input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-}
-/* 검색 입력창 */
-.search-box {
-  position: relative;
-  margin-bottom: 1rem;
-}
-
-.search-box input {
-  padding: .5rem 2.5rem .5rem 1rem;
-  width: 100%;
-  border: 1px solid #CCC;
-  border-radius: 24px;
-  font-size: .875rem;
-}
-
-.search-box .material-icons {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  color: #757575;
-  cursor: pointer;  /* 돋보기 아이콘 클릭 가능하도록 스타일 */
-}
-
-
-
-
-  </style> -->
-</head>
-<body>
-  <aside>
-    <div class="sidebar-subtitle">More</div>
-    <div class="nav-group">
-      <div class="nav-item" data-section="feedback"><i class="material-icons">feedback</i>Feedback</div>
-      <div class="nav-item" data-section="about"><i class="material-icons">info</i>About</div>
-    </div>
-    <hr>
-    <div class="sidebar-subtitle">Labels</div>
-    <div class="nav-group">
-      <div class="nav-item" data-section="all-items"><i class="material-icons">folder</i>전체 목록<span class="badge">5</span></div>
-      <div class="nav-item" data-section="expiring"><i class="material-icons">schedule</i>소비기한 임박<span class="badge">3</span></div>
-      <div class="nav-item" data-section="favorites"><i class="material-icons">folder</i>즐겨찾기<span class="badge">2</span></div>
-    </div>
-    <hr>
-    <div class="sidebar-subtitle">Labels</div>
-    <div class="nav-group">
-      <div class="nav-item" data-section="frozen"><i class="material-icons">ac_unit</i>냉동<span class="badge">2</span></div>
-      <div class="nav-item" data-section="refrigerated"><i class="material-icons">kitchen</i>냉장<span class="badge">2</span></div>
-      <div class="nav-item" data-section="room-temp"><i class="material-icons">wb_sunny</i>실온<span class="badge">1</span></div>
-    </div>
-  </aside>
-  <div class="container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1인 가구 식재료 관리</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/list.css" />
+    <style>
+      /* 현재 활성된 페이지: 좌측 메뉴 배경 색을 바꾸어 표시, id 사용 */
+      #ambient {
+        background: #cfd8dc;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 상단 네비게이션 -->
+    <!-- 검색 기능은 추후에 구현할 거니까 태그만 참고하기 -->
     <header>
       <span class="header-title">Site name</span>
       <nav class="header-nav">
-        <a href="..\static\main.html">Main</a>
-        <a href="..\static\map.html">Map</a>
-        <a href="..\static\mypage.html">My Page</a>
+        <a href="../static/main.html" data-section="main">Main</a>
+        <a href="../static/map.html" data-section="map">Map</a>
+        <a href="../static/mypage.html" data-section="my-page">My Page</a>
       </nav>
       <div class="header-actions">
-        <div class="btn-circle" data-section="add"><i class="material-icons">add</i></div>
+        <div class="btn-circle" data-section="add">
+          <i class="material-icons">add</i>
+        </div>
         <div class="search-box">
           <input type="text" placeholder="검색 키워드" />
           <i class="material-icons">search</i>
         </div>
       </div>
     </header>
-     <div id="all-items" class="page">
-      <h2>전체 목록</h2>
-      <div class="list-container">
-        <div class="list-item"><i class="material-icons">star_border</i><div class="item-text"><span class="storage">냉동</span><span class="name">토마토</span><span class="expiry">~ 2025.06.30</span></div><input type="checkbox" checked></div>
-        <div class="list-item"><i class="material-icons">star</i><div class="item-text"><span class="name">빵</span><span class="support">Supporting line text lorem ipsum dolor sit amet, consectetur.</span></div><input type="checkbox"></div>
+
+    <!-- 좌측 메뉴 바 -->
+    <!-- onclick으로 파일 이동 -> 유지보수 편리함, 필요 없는 태그들 지움 + id 추가 -->
+    <aside>
+      <div class="sidebar-subtitle">More</div>
+      <div class="nav-group">
+        <div
+          class="nav-item"
+          id="feedback"
+          onclick="navigateTo('../static/contact.html')"
+        >
+          <i class="material-icons">feedback</i>Feedback
+        </div>
+        <div
+          class="nav-item"
+          id="info"
+          onclick="navigateTo('../static/index.html')"
+        >
+          <i class="material-icons">info</i>About
+        </div>
       </div>
-    </div>
-    <!-- Expiring -->
-    <div id="expiring" class="page">
+      <hr />
+      <div class="sidebar-subtitle">Labels</div>
+      <div class="nav-group">
+        <div class="nav-item" id="listall" onclick="navigateTo('listall.html')">
+          <i class="material-icons">folder</i>전체 목록<span class="badge"
+            >5</span
+          >
+        </div>
+        <div class="nav-item" id="ambient">
+          <i class="material-icons">schedule</i>소비기한 임박<span class="badge"
+            >3</span
+          >
+        </div>
+        <div
+          class="nav-item"
+          id="bookmarks"
+          onclick="navigateTo('bookmarks.html')"
+        >
+          <i class="material-icons">folder</i>즐겨찾기<span class="badge"
+            >2</span
+          >
+        </div>
+      </div>
+      <hr />
+      <div class="sidebar-subtitle">Labels</div>
+      <div class="nav-group">
+        <div class="nav-item" id="freeze" onclick="navigateTo('freeze.html')">
+          <i class="material-icons">ac_unit</i>냉동<span class="badge">2</span>
+        </div>
+        <div class="nav-item" id="fridge" onclick="navigateTo('fridge.html')">
+          <i class="material-icons">kitchen</i>냉장<span class="badge">2</span>
+        </div>
+        <div
+          class="nav-item"
+          id="expiring"
+          onclick="navigateTo('expiring.html')"
+        >
+          <i class="material-icons">wb_sunny</i>실온<span class="badge">1</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 본문 리스트 내용 -->
+    <div class="container">
+      <!-- <div class="page"> 
+        다른 html 파일에서 page 태그 다 지우기: 필요 X-->
       <h2>소비기한 임박 목록</h2>
       <div class="list-container">
-        <div class="list-item"><i class="material-icons">star_border</i><div class="item-text"><span class="storage">냉장</span><span class="name">우유</span><span class="expiry">~ 2025.05.10</span></div><input type="checkbox"></div>
-        <div class="list-item"><i class="material-icons">star</i><div class="item-text"><span class="name">계란</span><span class="support">2일 이내 소비 필요</span></div><input type="checkbox"></div>
+        <div class="list-item">
+          <i class="material-icons">star_border</i>
+          <div class="item-text">
+            <span class="storage">냉장</span>
+            <span class="name">우유</span
+            ><span class="expiry">~ 2025.05.10</span>
+          </div>
+          <input type="checkbox" />
+        </div>
+
+        <div class="list-item">
+          <i class="material-icons">star</i>
+          <div class="item-text">
+            <span class="name">계란</span>
+            <span class="support">2일 이내 소비 필요</span>
+          </div>
+          <input type="checkbox" />
+        </div>
       </div>
+      <!-- </div> -->
     </div>
-    <!-- Favorites -->
-    <div id="favorites" class="page">
-      <h2>즐겨찾기</h2>
-      <div class="list-container">
-        <div class="list-item"><i class="material-icons">star</i><div class="item-text"><span class="storage">실온</span><span class="name">바나나</span><span class="expiry">~ 2025.06.01</span></div><input type="checkbox" checked></div>
-        <div class="list-item"><i class="material-icons">star</i><div class="item-text"><span class="storage">냉동</span><span class="name">아이스크림</span><span class="expiry">~ 2025.07.15</span></div><input type="checkbox" checked></div>
-      </div>
-    </div>
-    <div id="refrigerated" class="page">
-  <h2>냉장 보관 목록</h2>
-  <div class="list-container">
-    <div class="list-item">
-      <div class="storage-status refrigerated">냉장</div>
-      <i class="material-icons">star_border</i>
-      <div class="item-text">
-        <span class="name">치즈</span>
-        <span class="expiry">~ 2025.06.15</span>
-      </div>
-      <input type="checkbox">
-    </div>
-    <div class="list-item">
-      <div class="storage-status refrigerated">냉장</div>
-      <i class="material-icons">star_border</i>
-      <div class="item-text">
-        <span class="name">버터</span>
-        <span class="expiry">~ 2025.06.20</span>
-      </div>
-      <input type="checkbox">
-    </div>
-  </div>
-</div>
-
-<div id="frozen" class="page">
-  <h2>냉동 보관 목록</h2>
-  <div class="list-container">
-    <div class="list-item">
-      <div class="storage-status frozen">냉동</div>
-      <i class="material-icons">star_border</i>
-      <div class="item-text">
-        <span class="name">소고기</span>
-        <span class="expiry">~ 2025.08.20</span>
-      </div>
-      <input type="checkbox">
-    </div>
-    <div class="list-item">
-      <div class="storage-status frozen">냉동</div>
-      <i class="material-icons">star_border</i>
-      <div class="item-text">
-        <span class="name">새우</span>
-        <span class="expiry">~ 2025.09.01</span>
-      </div>
-      <input type="checkbox">
-    </div>
-  </div>
-</div>
-
-<div id="room-temp" class="page">
-  <h2>실온 보관 목록</h2>
-  <div class="list-container">
-    <div class="list-item">
-      <div class="storage-status room-temp">실온</div>
-      <i class="material-icons">star_border</i>
-      <div class="item-text">
-        <span class="name">빵</span>
-        <span class="expiry">~ 2025.06.05</span>
-      </div>
-      <input type="checkbox">
-    </div>
-  </div>
-</div>
-
-
-    <!-- Add -->
-    <div id="add" class="page">
-      <h2>추가</h2>
-      <div class="form-container">
-        <div class="form-row"><label for="item-name">이름</label><input type="text" id="item-name" placeholder="이름"></div>
-        <div class="form-row"><label for="item-category">분류</label><select id="item-category"><option value="all">전체</option><option value="frozen">냉동</option><option value="refrigerated">냉장</option><option value="room-temp">실온</option></select></div>
-        <div class="form-row"><label for="item-expiry">소비기한</label><input type="date" id="item-expiry"><i class="material-icons">calendar_today</i></div>
-        <div class="btn-add">Add</div>
-      </div>
-    </div>
-  </div>
-  <div id="search" class="page">
-  <h2>검색 키워드</h2>
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="검색 키워드" oninput="searchItems()" />
-    <i class="material-icons">search</i>
-  </div>
-  <div class="list-container" id="listContainer">
-    <!-- 리스트 항목들이 여기에 동적으로 추가됩니다. -->
-    <div class="list-item">
-      <i class="material-icons">star</i>
-      <div class="item-text">
-        <span class="name">검색 키워드</span>
-        <span class="expiry">~ 2025.06.30</span>
-      </div>
-      <input type="checkbox">
-    </div>
-    <div class="list-item">
-      <i class="material-icons">star_border</i>
-      <div class="item-text">
-        <span class="name">Supporting line text lorem ipsum dolor sit amet, consectetur.</span>
-      </div>
-      <input type="checkbox">
-    </div>
-  </div>
-</div>
-<div id="searchPage" class="page">
-  <h2>검색 키워드</h2>
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="검색 키워드" />
-    <i class="material-icons" id="searchButton">search</i>
-  </div>
-  <div class="list-container" id="listContainer">
-    <div class="list-item">
-      <i class="material-icons">star</i>
-      <div class="item-text">
-        <span class="name">빵</span>
-        <span class="expiry">~ 2025.06.30</span>
-      </div>
-      <input type="checkbox">
-    </div>
-    <div class="list-item">
-      <i class="material-icons">star_border</i>
-      <div class="item-text">
-        <span class="name">우유</span>
-        <span class="expiry">~ 2025.05.10</span>
-      </div>
-      <input type="checkbox">
-    </div>
-    <div class="list-item">
-      <i class="material-icons">star_border</i>
-      <div class="item-text">
-        <span class="name">치즈</span>
-        <span class="expiry">~ 2025.06.15</span>
-      </div>
-      <input type="checkbox">
-    </div>
-  </div>
-</div>
-
-
-
-
-  <script>
-    const pages = document.querySelectorAll('.page');
-    const menuItems = document.querySelectorAll('[data-section]');
-    const headerLinks = document.querySelectorAll('.header-nav [data-section]');
-    function showPage(id) {
-      pages.forEach(p => p.id === id ? p.classList.add('active') : p.classList.remove('active'));
-      menuItems.forEach(m => m.dataset.section === id ? m.classList.add('active') : m.classList.remove('active'));
-      headerLinks.forEach(h => h.dataset.section === id ? h.classList.add('active') : h.classList.remove('active'));
-    }
-    menuItems.forEach(el => el.addEventListener('click', () => showPage(el.dataset.section)));
-   
-    document.querySelector('.nav-item[data-section="about"]').addEventListener('click', () => {
-    window.location.href = '../static/index.html';});
-    document.querySelector('.nav-item[data-section="feedback"]').addEventListener('click', () => {
-    window.location.href = '../static/contact.html';});
-    
-
-    showPage('room-temp');
-
-    // 돋보기 버튼 클릭 시 검색 기능 실행
-document.getElementById('searchButton').addEventListener('click', searchItems);  // 돋보기 버튼 클릭 시 검색 실행
-
-function searchItems() {
-  const searchQuery = document.getElementById('searchInput').value.toLowerCase();  // 검색어 가져오기
-  const listItems = document.querySelectorAll('.list-item');  // 목록 항목들
-
-  // 입력된 검색어에 맞는 항목만 필터링
-  listItems.forEach(item => {
-    const itemText = item.querySelector('.name').textContent.toLowerCase();  // 항목 이름을 가져와 소문자로 변환
-
-    // 검색어가 항목 이름에 포함되면 보이게, 아니면 숨기기
-    if (itemText.includes(searchQuery)) {
-      item.style.display = 'flex';
-    } else {
-      item.style.display = 'none';
-    }
-  });
-}
-
-  </script>
-</body>
+    <script src="../static/js/list.js"></script>
+  </body>
 </html>
