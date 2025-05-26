@@ -10,11 +10,9 @@
     <header>
       <div class="logo" onclick="navigateTo('index.html')">Site name</div>
       <nav id="nav-links">
-        <a id="nav-main" href="#" onclick="navigateTo('main.html')">Main</a>
-        <a id="nav-map" href="#" onclick="navigateTo('map.html')">Map</a>
-        <a id="nav-mypage" href="#" onclick="navigateTo('mypage.html')"
-          >My Page</a
-        >
+        <a id="nav-main" onclick="navigateTo('main.html')">Main</a>
+        <a id="nav-map" onclick="navigateTo('map.html')">Map</a>
+        <a id="nav-mypage" onclick="navigateTo('mypage.html')">My Page</a>
       </nav>
     </header>
 
@@ -36,22 +34,22 @@
           </div>
         </div>
         <div class="menu">
-          <div class="menu-item" onclick="navigateTo('favorites')">
+          <div class="menu-item" onclick="navigateTo('/bookmarks')">
             즐겨찾기
           </div>
-          <div class="menu-item" onclick="navigateTo('expiring')">
+          <div class="menu-item" onclick="navigateTo('/ambient')">
             소비 기한 임박 목록
           </div>
-          <div class="menu-item" onclick="navigateTo('all-items')">
+          <div class="menu-item" onclick="navigateTo('/listall')">
             전체 보관 목록
           </div>
-          <div class="menu-item" onclick="navigateTo('frozen')">
+          <div class="menu-item" onclick="navigateTo('/freeze')">
             냉동 보관 목록
           </div>
-          <div class="menu-item" onclick="navigateTo('refrigerated')">
+          <div class="menu-item" onclick="navigateTo('/fridge')">
             냉장 보관 목록
           </div>
-          <div class="menu-item" onclick="navigateTo('room-temp')">
+          <div class="menu-item" onclick="navigateTo('/expiring')">
             실온 보관 목록
           </div>
         </div>

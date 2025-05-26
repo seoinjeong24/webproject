@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../static/css/list.css" />
+    <link rel="stylesheet" href="/css/list.css" />
     <style>
       #ambient {
         background: #cfd8dc;
@@ -17,19 +17,19 @@
   </head>
   <body>
     <header>
-      <span class="header-title" onclick="navigateTo('../static/index.html')"
+      <span class="header-title" onclick="navigateTo('/index.html')"
         >Site name</span
       >
       <nav class="header-nav">
-        <a href="../static/main.html" data-section="main">Main</a>
-        <a href="../static/map.html" data-section="map">Map</a>
-        <a href="../static/mypage.html" data-section="my-page">My Page</a>
+        <a onclick="navigateTo('/index.html')" data-section="main">Main</a>
+        <a onclick="navigateTo('/map.html')" data-section="map">Map</a>
+        <a onclick="navigateTo('/mypage.html')" data-section="my-page">My Page</a>
       </nav>
       <div class="header-actions">
         <div
           class="btn-circle"
           data-section="add"
-          onclick="navigateTo('../static/add.html')"
+          onclick="navigateTo('add')"
         >
           <i class="material-icons">add</i>
         </div>
@@ -46,21 +46,21 @@
         <div
           class="nav-item"
           id="feedback"
-          onclick="navigateTo('../static/contact.html')"
+          onclick="navigateTo('/contact.html')"
         >
           <i class="material-icons">feedback</i>Feedback
         </div>
         <div
           class="nav-item"
           id="info"
-          onclick="navigateTo('../static/index.html')"
+          onclick="navigateTo('/index.html')"
         >
           <i class="material-icons">info</i>About
         </div>
         <div
           class="nav-item"
           id="supervisor_account"
-          onclick="navigateTo('managing.html')"
+          onclick="navigateTo('managing')"
         >
           <i class="material-icons">supervisor_account</i>회원 관리
         </div>
@@ -68,7 +68,7 @@
       <hr />
       <div class="sidebar-subtitle">Labels</div>
       <div class="nav-group">
-        <div class="nav-item" id="listall" onclick="navigateTo('listall.html')">
+        <div class="nav-item" id="listall" onclick="navigateTo('listall')">
           <i class="material-icons">folder</i>전체 목록<span class="badge"
             >5</span
           >
@@ -81,7 +81,7 @@
         <div
           class="nav-item"
           id="bookmarks"
-          onclick="navigateTo('bookmarks.html')"
+          onclick="navigateTo('bookmarks')"
         >
           <i class="material-icons">folder</i>즐겨찾기<span class="badge"
             >2</span
@@ -91,16 +91,16 @@
       <hr />
       <div class="sidebar-subtitle">Labels</div>
       <div class="nav-group">
-        <div class="nav-item" id="freeze" onclick="navigateTo('freeze.html')">
+        <div class="nav-item" id="freeze" onclick="navigateTo('freeze')">
           <i class="material-icons">ac_unit</i>냉동<span class="badge">2</span>
         </div>
-        <div class="nav-item" id="fridge" onclick="navigateTo('fridge.html')">
+        <div class="nav-item" id="fridge" onclick="navigateTo('fridge')">
           <i class="material-icons">kitchen</i>냉장<span class="badge">2</span>
         </div>
         <div
           class="nav-item"
           id="expiring"
-          onclick="navigateTo('expiring.html')"
+          onclick="navigateTo('expiring')"
         >
           <i class="material-icons">wb_sunny</i>실온<span class="badge">1</span>
         </div>
@@ -131,6 +131,6 @@
         </div>
       </div>
     </div>
-    <script src="../static/js/list.js"></script>
+    <script src="/js/list.js"></script>
   </body>
 </html>
