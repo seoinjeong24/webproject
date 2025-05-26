@@ -10,15 +10,12 @@
     />
     <link rel="stylesheet" href="../static/css/list.css" />
     <style>
-      /* 현재 활성된 페이지: 좌측 메뉴 배경 색을 바꾸어 표시, id 사용 */
       #ambient {
         background: #cfd8dc;
       }
     </style>
   </head>
   <body>
-    <!-- 상단 네비게이션 -->
-    <!-- 검색 기능은 추후에 구현할 거니까 태그만 참고하기 -->
     <header>
       <span class="header-title">Site name</span>
       <nav class="header-nav">
@@ -27,7 +24,11 @@
         <a href="../static/mypage.html" data-section="my-page">My Page</a>
       </nav>
       <div class="header-actions">
-        <div class="btn-circle" data-section="add">
+        <div
+          class="btn-circle"
+          data-section="add"
+          onclick="navigateTo('../static/add.html')"
+        >
           <i class="material-icons">add</i>
         </div>
         <div class="search-box">
