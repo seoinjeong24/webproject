@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../static/css/list.css" />
+    <link rel="stylesheet" href="/css/list.css" />
     <style>
       #fridge {
         background: #cfd8dc;
@@ -17,19 +17,19 @@
   </head>
   <body>
     <header>
-      <span class="header-title" onclick="navigateTo('../static/index.html')"
+      <span class="header-title" onclick="navigateTo('/index.html')"
         >Site name</span
       >
       <nav class="header-nav">
-        <a href="../static/main.html" data-section="main">Main</a>
-        <a href="../static/map.html" data-section="map">Map</a>
-        <a href="../static/mypage.html" data-section="my-page">My Page</a>
+        <a onclick="navigateTo('/main.html')" data-section="main">Main</a>
+        <a onclick="navigateTo('/map.html')" data-section="map">Map</a>
+        <a onclick="navigateTo('/mypage.html')" data-section="my-page">My Page</a>
       </nav>
       <div class="header-actions">
         <div
           class="btn-circle"
           data-section="add"
-          onclick="navigateTo('../static/add.html')"
+          onclick="navigateTo('add')"
         >
           <i class="material-icons">add</i>
         </div>
@@ -46,21 +46,21 @@
         <div
           class="nav-item"
           id="feedback"
-          onclick="navigateTo('../static/contact.html')"
+          onclick="navigateTo('/contact.html')"
         >
           <i class="material-icons">feedback</i>Feedback
         </div>
         <div
           class="nav-item"
           id="info"
-          onclick="navigateTo('../static/index.html')"
+          onclick="navigateTo('/index.html')"
         >
           <i class="material-icons">info</i>About
         </div>
         <div
           class="nav-item"
           id="supervisor_account"
-          onclick="navigateTo('managing.html')"
+          onclick="navigateTo('managing')"
         >
           <i class="material-icons">supervisor_account</i>회원 관리
         </div>
@@ -68,12 +68,12 @@
       <hr />
       <div class="sidebar-subtitle">Labels</div>
       <div class="nav-group">
-        <div class="nav-item" id="listall" onclick="navigateTo('listall.html')">
+        <div class="nav-item" id="listall" onclick="navigateTo('listall')">
           <i class="material-icons">folder</i>전체 목록<span class="badge"
             >5</span
           >
         </div>
-        <div class="nav-item" id="ambient" onclick="navigateTo('ambient.html')">
+        <div class="nav-item" id="ambient" onclick="navigateTo('ambient')">
           <i class="material-icons">schedule</i>소비기한 임박<span class="badge"
             >3</span
           >
@@ -81,7 +81,7 @@
         <div
           class="nav-item"
           id="bookmarks"
-          onclick="navigateTo('bookmarks.html')"
+          onclick="navigateTo('bookmarks')"
         >
           <i class="material-icons">folder</i>즐겨찾기<span class="badge"
             >2</span
@@ -91,7 +91,7 @@
       <hr />
       <div class="sidebar-subtitle">Labels</div>
       <div class="nav-group">
-        <div class="nav-item" id="freeze" onclick="navigateTo('freeze.html')">
+        <div class="nav-item" id="freeze" onclick="navigateTo('freeze')">
           <i class="material-icons">ac_unit</i>냉동<span class="badge">2</span>
         </div>
         <div class="nav-item" id="fridge">
@@ -100,7 +100,7 @@
         <div
           class="nav-item"
           id="expiring"
-          onclick="navigateTo('expiring.html')"
+          onclick="navigateTo('expiring')"
         >
           <i class="material-icons">wb_sunny</i>실온<span class="badge">1</span>
         </div>
@@ -115,7 +115,7 @@
           <div class="item-text">
             <div class="storage-status refrigerated">냉장</div>
             <span class="name">치즈</span>
-            <span class="support">~ 2025.06.15</span>
+            <span class="expiry">~ 2025.06.15</span>
           </div>
           <input type="checkbox" />
         </div>
@@ -130,8 +130,9 @@
           <input type="checkbox" />
         </div>
       </div>
+
     </div>
 
-    <script src="../static/js/list.js"></script>
+    <script src="/js/list.js"></script>
   </body>
 </html>

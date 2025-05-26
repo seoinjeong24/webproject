@@ -8,15 +8,15 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../static/css/add.css" />
+    <link rel="stylesheet" href="/css/add.css" />
   </head>
   <body>
     <header>
-      <span class="header-title">Site name</span>
+      <span class="header-title" onclick="navigateTo('/index.html')">Site name</span>
       <nav class="header-nav">
-        <a href="main.html" data-section="main">Main</a>
-        <a href="map.html" data-section="map">Map</a>
-        <a href="mypage.html" data-section="my-page">My Page</a>
+        <a onclick="navigateTo('/index.html')" data-section="main">Main</a>
+        <a onclick="navigateTo('/map.html')" data-section="map">Map</a>
+        <a onclick="navigateTo('/mypage.html')" data-section="my-page">My Page</a>
       </nav>
       <div class="header-actions">
         <div class="btn-circle" data-section="add">
@@ -35,17 +35,17 @@
         <div
           class="nav-item"
           id="feedback"
-          onclick="navigateTo('contact.html')"
+          onclick="navigateTo('/contact.html')"
         >
           <i class="material-icons">feedback</i>Feedback
         </div>
-        <div class="nav-item" id="info" onclick="navigateTo('index.html')">
+        <div class="nav-item" id="info" onclick="navigateTo('/index.html')">
           <i class="material-icons">info</i>About
         </div>
         <div
           class="nav-item"
           id="supervisor_account"
-          onclick="navigateTo('../templates/managing.html')"
+          onclick="navigateTo('managing')"
         >
           <i class="material-icons">supervisor_account</i>회원 관리
         </div>
@@ -56,7 +56,7 @@
         <div
           class="nav-item"
           id="listall"
-          onclick="navigateTo('../templates/listall.html')"
+          onclick="navigateTo('listall')"
         >
           <i class="material-icons">folder</i>전체 목록<span class="badge"
             >5</span
@@ -65,7 +65,7 @@
         <div
           class="nav-item"
           id="ambient"
-          onclick="navigateTo('../templates/ambient.html')"
+          onclick="navigateTo('ambient')"
         >
           <i class="material-icons">schedule</i>소비기한 임박<span class="badge"
             >3</span
@@ -74,7 +74,7 @@
         <div
           class="nav-item"
           id="bookmarks"
-          onclick="navigateTo('../templates/bookmarks.html')"
+          onclick="navigateTo('bookmarks')"
         >
           <i class="material-icons">folder</i>즐겨찾기<span class="badge"
             >2</span
@@ -87,21 +87,21 @@
         <div
           class="nav-item"
           id="freeze"
-          onclick="navigateTo('../templates/freeze.html')"
+          onclick="navigateTo('freeze')"
         >
           <i class="material-icons">ac_unit</i>냉동<span class="badge">2</span>
         </div>
         <div
           class="nav-item"
           id="fridge"
-          onclick="navigateTo('../templates/fridge.html')"
+          onclick="navigateTo('fridge')"
         >
           <i class="material-icons">kitchen</i>냉장<span class="badge">2</span>
         </div>
         <div
           class="nav-item"
           id="expiring"
-          onclick="navigateTo('../templates/expiring.html')"
+          onclick="navigateTo('expiring')"
         >
           <i class="material-icons">wb_sunny</i>실온<span class="badge">1</span>
         </div>
@@ -118,7 +118,7 @@
 
         <div class="form">
           <label for="category">분류</label>
-          <select>
+          <select id="category">
             <option value="none">=== 선택 ===</option>
             <option value="freeze">냉동</option>
             <option value="fridge">냉장</option>
@@ -126,6 +126,7 @@
           </select>
           <br />
         </div>
+
         <div class="form">
           <label for="date">소비기한</label>
           <input type="date" id="date" max="2070-12-31" /> <br />
@@ -134,6 +135,6 @@
       </div>
     </div>
 
-    <script src="../static/js/add.js"></script>
+      <script src="/js/add.js"></script>
   </body>
 </html>
