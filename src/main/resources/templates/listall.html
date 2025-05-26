@@ -17,7 +17,9 @@
   </head>
   <body>
     <header>
-      <span class="header-title">Site name</span>
+      <span class="header-title" onclick="navigateTo('../static/index.html')"
+        >Site name</span
+      >
       <nav class="header-nav">
         <a href="../static/main.html" data-section="main">Main</a>
         <a href="../static/map.html" data-section="map">Map</a>
@@ -54,6 +56,13 @@
           onclick="navigateTo('../static/index.html')"
         >
           <i class="material-icons">info</i>About
+        </div>
+        <div
+          class="nav-item"
+          id="supervisor_account"
+          onclick="navigateTo('managing.html')"
+        >
+          <i class="material-icons">supervisor_account</i>회원 관리
         </div>
       </div>
       <hr />
@@ -105,17 +114,48 @@
           <i class="material-icons">star_border</i>
           <div class="item-text">
             <div class="storage-status frozen">냉동</div>
-            <span class="name">토마토</span>
-            <span class="expiry">~ 2025.06.30</span>
+            <span class="name">소고기</span>
+            <span class="expiry">~ 2025.08.20</span>
           </div>
-          <input type="checkbox" checked />
+          <input type="checkbox" />
         </div>
 
         <div class="list-item">
           <i class="material-icons">star</i>
           <div class="item-text">
+            <div class="storage-status frozen">냉동</div>
+            <span class="name">새우</span>
+            <span class="expiry">~ 2025.09.01</span>
+          </div>
+          <input type="checkbox" />
+        </div>
+
+        <div class="list-item">
+          <i class="material-icons">star_border</i>
+          <div class="item-text">
+            <div class="storage-status refrigerated">냉장</div>
+            <span class="name">치즈</span>
+            <span class="support">~ 2025.06.15</span>
+          </div>
+          <input type="checkbox" />
+        </div>
+
+        <div class="list-item">
+          <i class="material-icons">star_border</i>
+          <div class="item-text">
+            <div class="storage-status refrigerated">냉장</div>
+            <span class="name">버터</span>
+            <span class="expiry">~ 2025.06.20</span>
+          </div>
+          <input type="checkbox" />
+        </div>
+
+        <div class="list-item">
+          <i class="material-icons">star</i>
+          <div class="item-text">
+            <div class="storage-status ambient">실온</div>
             <span class="name">빵</span>
-            <span class="support">2일 이내 소비 필요</span>
+            <span class="support">~ 2025.06.05</span>
           </div>
           <input type="checkbox" />
         </div>
