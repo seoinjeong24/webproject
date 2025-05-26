@@ -8,27 +8,18 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../static/css/list.css" />
-    <style>
-      #freeze {
-        background: #cfd8dc;
-      }
-    </style>
+    <link rel="stylesheet" href="../static/css/add.css" />
   </head>
   <body>
     <header>
       <span class="header-title">Site name</span>
       <nav class="header-nav">
-        <a href="../static/main.html" data-section="main">Main</a>
-        <a href="../static/map.html" data-section="map">Map</a>
-        <a href="../static/mypage.html" data-section="my-page">My Page</a>
+        <a href="main.html" data-section="main">Main</a>
+        <a href="map.html" data-section="map">Map</a>
+        <a href="mypage.html" data-section="my-page">My Page</a>
       </nav>
       <div class="header-actions">
-        <div
-          class="btn-circle"
-          data-section="add"
-          onclick="navigateTo('../static/add.html')"
-        >
+        <div class="btn-circle" data-section="add">
           <i class="material-icons">add</i>
         </div>
         <div class="search-box">
@@ -44,27 +35,31 @@
         <div
           class="nav-item"
           id="feedback"
-          onclick="navigateTo('../static/contact.html')"
+          onclick="navigateTo('contact.html')"
         >
           <i class="material-icons">feedback</i>Feedback
         </div>
-        <div
-          class="nav-item"
-          id="info"
-          onclick="navigateTo('../static/index.html')"
-        >
+        <div class="nav-item" id="info" onclick="navigateTo('index.html')">
           <i class="material-icons">info</i>About
         </div>
       </div>
       <hr />
       <div class="sidebar-subtitle">Labels</div>
       <div class="nav-group">
-        <div class="nav-item" id="listall" onclick="navigateTo('listall.html')">
+        <div
+          class="nav-item"
+          id="listall"
+          onclick="navigateTo('../templates/listall.html')"
+        >
           <i class="material-icons">folder</i>전체 목록<span class="badge"
             >5</span
           >
         </div>
-        <div class="nav-item" id="ambient" onclick="navigateTo('ambient.html')">
+        <div
+          class="nav-item"
+          id="ambient"
+          onclick="navigateTo('../templates/ambient.html')"
+        >
           <i class="material-icons">schedule</i>소비기한 임박<span class="badge"
             >3</span
           >
@@ -72,7 +67,7 @@
         <div
           class="nav-item"
           id="bookmarks"
-          onclick="navigateTo('bookmarks.html')"
+          onclick="navigateTo('../templates/bookmarks.html')"
         >
           <i class="material-icons">folder</i>즐겨찾기<span class="badge"
             >2</span
@@ -82,16 +77,24 @@
       <hr />
       <div class="sidebar-subtitle">Labels</div>
       <div class="nav-group">
-        <div class="nav-item" id="freeze">
+        <div
+          class="nav-item"
+          id="freeze"
+          onclick="navigateTo('../templates/freeze.html')"
+        >
           <i class="material-icons">ac_unit</i>냉동<span class="badge">2</span>
         </div>
-        <div class="nav-item" id="fridge" onclick="navigateTo('fridge.html')">
+        <div
+          class="nav-item"
+          id="fridge"
+          onclick="navigateTo('../templates/fridge.html')"
+        >
           <i class="material-icons">kitchen</i>냉장<span class="badge">2</span>
         </div>
         <div
           class="nav-item"
           id="expiring"
-          onclick="navigateTo('expiring.html')"
+          onclick="navigateTo('../templates/expiring.html')"
         >
           <i class="material-icons">wb_sunny</i>실온<span class="badge">1</span>
         </div>
@@ -99,30 +102,31 @@
     </aside>
 
     <div class="container">
-      <h2>냉동 보관 목록</h2>
-      <div class="list-container">
-        <div class="list-item">
-          <i class="material-icons">star_border</i>
-          <div class="item-text">
-            <div class="storage-status frozen">냉동</div>
-            <span class="name">소고기</span>
-            <span class="expiry">~ 2025.08.20</span>
-          </div>
-          <input type="checkbox" />
+      <h2>추가</h2>
+      <div id="add-form">
+        <div class="form">
+          <label for="list-name">이름</label>
+          <input id="list-name" type="text" placeholder="이름" /> <br />
         </div>
 
-        <div class="list-item">
-          <i class="material-icons">star_border</i>
-          <div class="item-text">
-            <div class="storage-status frozen">냉동</div>
-            <span class="name">새우</span>
-            <span class="expiry">~ 2025.09.01</span>
-          </div>
-          <input type="checkbox" />
+        <div class="form">
+          <label for="category">분류</label>
+          <select>
+            <option value="none">=== 선택 ===</option>
+            <option value="freeze">냉동</option>
+            <option value="fridge">냉장</option>
+            <option value="expiring">실온</option>
+          </select>
+          <br />
         </div>
+        <div class="form">
+          <label for="date">소비기한</label>
+          <input type="date" id="date" max="2070-12-31" /> <br />
+        </div>
+        <button class="add-btn">Add</button>
       </div>
     </div>
 
-    <script src="../static/js/list.js"></script>
+    <script src="../static/js/add.js"></script>
   </body>
 </html>
