@@ -8,29 +8,23 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../static/css/list.css" />
+    <link rel="stylesheet" href="../static/css/managing.css" />
     <style>
-      #bookmarks {
+      #managing {
         background: #cfd8dc;
       }
     </style>
   </head>
   <body>
     <header>
-      <span class="header-title" onclick="navigateTo('../static/index.html')"
-        >Site name</span
-      >
+      <span class="header-title">Site name</span>
       <nav class="header-nav">
-        <a href="../static/main.html" data-section="main">Main</a>
-        <a href="../static/map.html" data-section="map">Map</a>
-        <a href="../static/mypage.html" data-section="my-page">My Page</a>
+        <a href="main.html" data-section="main">Main</a>
+        <a href="map.html" data-section="map">Map</a>
+        <a href="mypage.html" data-section="my-page">My Page</a>
       </nav>
       <div class="header-actions">
-        <div
-          class="btn-circle"
-          data-section="add"
-          onclick="navigateTo('../static/add.html')"
-        >
+        <div class="btn-circle" data-section="add">
           <i class="material-icons">add</i>
         </div>
         <div class="search-box">
@@ -57,11 +51,7 @@
         >
           <i class="material-icons">info</i>About
         </div>
-        <div
-          class="nav-item"
-          id="supervisor_account"
-          onclick="navigateTo('managing.html')"
-        >
+        <div class="nav-item" id="managing">
           <i class="material-icons">supervisor_account</i>회원 관리
         </div>
       </div>
@@ -78,7 +68,11 @@
             >3</span
           >
         </div>
-        <div class="nav-item" id="bookmarks">
+        <div
+          class="nav-item"
+          id="bookmarks"
+          onclick="navigateTo('bookmarks.html')"
+        >
           <i class="material-icons">folder</i>즐겨찾기<span class="badge"
             >2</span
           >
@@ -104,28 +98,40 @@
     </aside>
 
     <div class="container">
-      <h2>즐겨찾기</h2>
-      <div class="list-container">
-        <div class="list-item">
-          <i class="material-icons">star</i>
-          <div class="item-text">
-            <div class="storage-status frozen">냉동</div>
-            <span class="name">새우</span>
-            <span class="expiry">~ 2025.09.01</span>
-          </div>
-          <input type="checkbox" />
-        </div>
-        <div class="list-item">
-          <i class="material-icons">star</i>
-          <div class="item-text">
-            <div class="storage-status ambient">실온</div>
-            <span class="name">빵</span>
-            <span class="support">~ 2025.06.05</span>
-          </div>
-          <input type="checkbox" />
-        </div>
-      </div>
+      <h2>회원 관리</h2>
+      <h4>운영자 페이지: 회원 목록 조회</h4>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>사용자 명</th>
+            <th>메일 주소</th>
+            <th>문의 사항</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>001</td>
+            <td>test1</td>
+            <td>test1@example.com</td>
+            <td>기타 항목도 만들어주세요.</td>
+          </tr>
+          <tr>
+            <td>002</td>
+            <td>test2</td>
+            <td>test2@example.com</td>
+            <td>온라인 쇼핑도 가능했으면 좋겠습니다.</td>
+          </tr>
+          <tr>
+            <td>003</td>
+            <td>test3</td>
+            <td>test3@example.com</td>
+            <td>잘 쓰고 있습니다~!</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <script src="../static/js/list.js"></script>
+
+    <script src="../static/js/add.js"></script>
   </body>
 </html>

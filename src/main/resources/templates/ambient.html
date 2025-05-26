@@ -17,7 +17,9 @@
   </head>
   <body>
     <header>
-      <span class="header-title">Site name</span>
+      <span class="header-title" onclick="navigateTo('../static/index.html')"
+        >Site name</span
+      >
       <nav class="header-nav">
         <a href="../static/main.html" data-section="main">Main</a>
         <a href="../static/map.html" data-section="map">Map</a>
@@ -38,8 +40,6 @@
       </div>
     </header>
 
-    <!-- 좌측 메뉴 바 -->
-    <!-- onclick으로 파일 이동 -> 유지보수 편리함, 필요 없는 태그들 지움 + id 추가 -->
     <aside>
       <div class="sidebar-subtitle">More</div>
       <div class="nav-group">
@@ -56,6 +56,13 @@
           onclick="navigateTo('../static/index.html')"
         >
           <i class="material-icons">info</i>About
+        </div>
+        <div
+          class="nav-item"
+          id="supervisor_account"
+          onclick="navigateTo('managing.html')"
+        >
+          <i class="material-icons">supervisor_account</i>회원 관리
         </div>
       </div>
       <hr />
@@ -100,18 +107,15 @@
       </div>
     </aside>
 
-    <!-- 본문 리스트 내용 -->
     <div class="container">
-      <!-- <div class="page"> 
-        다른 html 파일에서 page 태그 다 지우기: 필요 X-->
       <h2>소비기한 임박 목록</h2>
       <div class="list-container">
         <div class="list-item">
           <i class="material-icons">star_border</i>
           <div class="item-text">
             <div class="storage-status refrigerated">냉장</div>
-            <span class="name">우유</span
-            ><span class="expiry">~ 2025.05.10</span>
+            <span class="name">치즈</span>
+            <span class="support">~ 2025.06.15</span>
           </div>
           <input type="checkbox" />
         </div>
@@ -119,13 +123,13 @@
         <div class="list-item">
           <i class="material-icons">star</i>
           <div class="item-text">
-            <span class="name">계란</span>
-            <span class="support">2일 이내 소비 필요</span>
+            <div class="storage-status ambient">실온</div>
+            <span class="name">빵</span>
+            <span class="support">~ 2025.06.05</span>
           </div>
           <input type="checkbox" />
         </div>
       </div>
-      <!-- </div> -->
     </div>
     <script src="../static/js/list.js"></script>
   </body>
