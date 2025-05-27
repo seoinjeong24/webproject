@@ -6,7 +6,6 @@ COPY . .
 
 RUN ./gradlew build --no-daemon -x test
 
-
 # 실행용
 FROM openjdk:17-jdk-slim
 
