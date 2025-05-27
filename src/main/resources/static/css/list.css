@@ -131,7 +131,7 @@ aside {
   display: grid;
   grid-template-columns: auto 1fr auto auto;
   align-items: center;
-  padding: 1rem;
+  padding: 1em 1.5rem 1em 1.5rem;
   border-radius: 8px;
   background: #f9f9f9;
   border: 1px solid #e0e0e0;
@@ -190,6 +190,10 @@ aside {
   width: 16px;
   height: 16px;
   cursor: pointer;
+}
+
+.list-item.checked {
+  opacity: 0.6;
 }
 
 .item-text .support {

@@ -20,3 +20,48 @@ searchIcon.addEventListener("click", filterItems);
 function navigateTo(path) {
   window.location.href = path;
 }
+
+//삭제
+document.addEventListener("DOMContentLoaded", function () {
+  const deleteIcons = document.querySelectorAll(".material-icons");
+
+  deleteIcons.forEach(function (icon) {
+    if (icon.textContent === "delete") {
+      icon.addEventListener("click", function () {
+        const listItem = icon.closest(".list-item");
+        if (listItem) {
+          listItem.style.display = "none";
+        }
+      });
+    }
+  });
+});
+
+//즐겨찾기 (DB 사용 X)
+document.addEventListener("DOMContentLoaded", function () {
+  const starIcons = document.querySelectorAll(".material-icons");
+
+  starIcons.forEach(function (icon) {
+    icon.addEventListener("click", function () {
+      if (icon.textContent === "star_border") {
+        icon.textContent = "star";
+      } else if (icon.textContent === "star") {
+        icon.textContent = "star_border";
+      }
+    });
+  });
+});
+
+//체크 표시
+document.addEventListener("DOMContentLoaded", function () {
+  const checkboxes = document.querySelectorAll(
+    ".list-item input[type='checkbox']"
+  );
+
+  checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener("change", function () {
+      const listItem = checkbox.closest(".list-item");
+      listItem.classList.toggle("checked", checkbox.checked);
+    });
+  });
+});
