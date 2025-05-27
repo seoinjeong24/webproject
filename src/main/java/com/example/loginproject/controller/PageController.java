@@ -65,9 +65,9 @@ public class PageController {
         return "managing";
     }
 
-    @GetMapping("/")
-    public String root() {
-        return "index";  // templates/index.html 또는 static/index.html에 맞게
-    }
+//    @GetMapping("/")
+//    public String root() {
+//        return "index";  
+//    }
 
 }
