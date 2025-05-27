@@ -6,10 +6,10 @@ function navigateTo(path) {
 }
 document.getElementById("date").value = today;
 
-//add-btn -> 데이터 전송
-document.querySelector(".add-btn").addEventListener("click", async () => {
-  const name = document.getElementById("list-name").value;
-  const category = document.querySelector("select").value;
+//add
+document.querySelector(".add-btn").addEventListener("click", function () {
+  const name = document.getElementById("list-name").value.trim();
+  const category = document.getElementById("category").value;
   const date = document.getElementById("date").value;
 
   if (!name || category === "none" || !date) {
@@ -17,45 +17,20 @@ document.querySelector(".add-btn").addEventListener("click", async () => {
     return;
   }
 
-  const response = await fetch("/add", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ name, category, expiryDate: date }),
-  });
+  const item = { name, category, date };
 
-  if (response.ok) {
-    alert("추가되었습니다.");
+  // 기존 데이터 불러오기
+  const stored = localStorage.getItem("items");
+  const items = stored ? JSON.parse(stored) : [];
 
-    const formattedDate = date.replace(/-/g, ".");
-    const listContainer = document.querySelector(".list-container");
+  // 새 항목 추가
+  items.push(item);
+  localStorage.setItem("items", JSON.stringify(items));
 
-    if (listContainer) {
-      const div = document.createElement("div");
-      div.className = "list-item";
+  alert("추가되었습니다!");
 
-      div.innerHTML = `
-        <i class="material-icons">star_border</i>
-        <div class="item-text">
-          <div class="storage-status ${category === 'freeze' ? 'frozen' : category}">${category === 'freeze' ? '냉동' : category}</div>
-          <span class="name">${name}</span>
-          <span class="expiry">~ ${formattedDate}</span>
-        </div>
-        <input type="checkbox" />
-      `;
-
-      listContainer.appendChild(div);
-    }
-
-    // 입력폼 초기화
-    document.getElementById("list-name").value = "";
-    document.querySelector("select").value = "none";
-    document.getElementById("date").value = "";
-
-    window.location.href = `/${category}`;
-
-  } else {
-    alert("추가에 실패했습니다.");
-  }
+  // 입력값 초기화
+  document.getElementById("list-name").value = "";
+  document.getElementById("category").value = "none";
+  document.getElementById("date").value = "";
 });

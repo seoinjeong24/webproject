@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -115,7 +115,7 @@
           <div class="item-text">
             <div class="storage-status refrigerated">냉장</div>
             <span class="name">치즈</span>
-            <span class="expiry" th:text="'~ ' + ${item.expiryDate}">~ 2025.06.15</span>
+            <span class="expiry">~ 2025.06.15</span>
           </div>
           <input type="checkbox" />
         </div>
@@ -125,22 +125,12 @@
           <div class="item-text">
             <div class="storage-status refrigerated">냉장</div>
             <span class="name">버터</span>
-            <span class="expiry" th:text="'~ ' + ${item.expiryDate}">~ 2025.06.20</span>
+            <span class="expiry">~ 2025.06.20</span>
           </div>
           <input type="checkbox" />
         </div>
       </div>
 
-      <!--추가된 아이템들 반복 출력-->
-      <div th:each="item : ${items}" class="list-item">
-        <i class="material-icons">star_border</i>
-        <div class="item-text">
-          <div class="storage-status refrigerated">냉장</div>
-          <span class="name" th:text="${item.name}">이름</span>
-          <span class="expiry" th:text="'~ ' + ${item.expiryDate}">~ 2025.06.15</span>
-        </div>
-        <input type="checkbox" />
-      </div>
     </div>
 
     <script src="/js/list.js"></script>
