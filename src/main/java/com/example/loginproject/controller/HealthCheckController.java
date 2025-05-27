@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HealthCheckController {
 
-    @GetMapping("/")
-    public String home() {
-        return "Spring is alive.";
+    @GetMapping("/health")
+    public String health() {
+        return "OK";
     }
 }
+
