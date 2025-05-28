@@ -28,6 +28,10 @@ nav a {
   font-weight: 500;
 }
 
+nav a :hover {
+  cursor: pointer;
+}
+
 .signup-box {
   display: flex;
   flex-direction: column;

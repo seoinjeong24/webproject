@@ -29,6 +29,10 @@ nav a {
   font-weight: 500;
 }
 
+nav a :hover {
+  cursor: pointer;
+}
+
 main {
   display: flex;
   justify-content: space-between;

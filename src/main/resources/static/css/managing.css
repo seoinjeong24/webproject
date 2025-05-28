@@ -47,6 +47,10 @@ header {
   text-decoration: none;
 }
 
+.header-nav a :hover {
+  cursor: pointer;
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -475,7 +479,7 @@ aside {
     gap: 0.5rem;
   }
 
-  .list-item>i.material-icons,
+  .list-item > i.material-icons,
   .list-item input[type="checkbox"],
   .list-item i.material-icons:last-child {
     justify-self: end;
