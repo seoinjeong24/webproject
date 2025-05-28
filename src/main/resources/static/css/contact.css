@@ -12,7 +12,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
   padding: 1rem 2rem;
   border-bottom: 1px solid #ccc;
 }
@@ -20,7 +19,6 @@ header {
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #333;
   cursor: pointer;
 }
 
@@ -31,10 +29,9 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #333;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  margin-left: 1rem;
+  color: #000;
+  font-weight: 500;
 }
 
 nav a.active {
@@ -51,10 +48,9 @@ main {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 1rem;
+  margin: 30px auto;
 }
 
 .form-container {
