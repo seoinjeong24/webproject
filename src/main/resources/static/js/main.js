@@ -1,9 +1,8 @@
 function navigateTo(path) {
   const target = event.target;
-  const isInSidebar = target.closest(".sidebar-subtitle") !== null;
+  const CardGrid = target.closest(".card-grid") !== null;
 
-  // sidebar-subtitle 내부일 경우만 로그인 확인
-  if (isInSidebar) {
+  if (CardGrid) {
     const username = localStorage.getItem("username");
     const userId = localStorage.getItem("userId");
 
