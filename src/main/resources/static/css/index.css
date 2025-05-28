@@ -86,6 +86,7 @@ main {
 
 .side-buttons button:hover {
   background: #444;
+  cursor: pointer;
 }
 
 .side-buttons button span {
