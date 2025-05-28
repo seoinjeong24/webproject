@@ -138,7 +138,6 @@ aside {
   gap: 1rem;
 }
 
-/* 기본 구조 */
 .storage-status {
   font-size: 0.75rem;
   font-weight: 600;
@@ -148,20 +147,16 @@ aside {
   width: fit-content;
 }
 
-/* 상태별 색상은 아래에서 확실하게 덮어쓰기 */
 .storage-status.frozen {
   background-color: #00bcd4;
-  /* 냉동: 시원한 파랑 */
 }
 
 .storage-status.refrigerated {
   background-color: #4caf50;
-  /* 냉장: 신선한 초록 */
 }
 
 .storage-status.ambient {
   background-color: #ff9800;
-  /* 실온: 따뜻한 오렌지 */
 }
 
 .item-text {
@@ -198,20 +193,16 @@ aside {
 
 .item-text .support {
   font-size: 0.7rem;
-  /* 계란(name)보다 작게 */
   color: #e53935;
-  /* 진한 빨강 */
   font-weight: 500;
 }
 
-/* 추가 + 검색창 전체 래핑 */
 .header-actions {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-/* 추가 버튼 (동그란 버튼 안에 + 아이콘) */
 .btn-circle {
   width: 36px;
   height: 36px;
@@ -265,7 +256,7 @@ aside {
   }
 
   aside {
-    display: none; /* 사이드바 제거 */
+    display: none;
   }
 
   header {
@@ -292,7 +283,7 @@ aside {
 @media (max-width: 768px) {
   .list-item {
     display: grid;
-    grid-template-columns: auto 1fr auto auto; /* 원래 구조 유지 */
+    grid-template-columns: auto 1fr auto auto; 
     align-items: center;
     gap: 0.5rem;
     padding: 1rem;
@@ -343,8 +334,8 @@ aside {
 
 .header-actions {
   display: flex;
-  justify-content: flex-start; /* 왼쪽 정렬 */
-  padding-left: 1rem; /* 약간의 여백 */
+  justify-content: flex-start; 
+  padding-left: 1rem; 
 }
 
 .search-wrapper {
@@ -354,7 +345,7 @@ aside {
   border-radius: 8px;
   background-color: white;
   padding: 0.25rem 0.5rem;
-  max-width: 300px;  /* 너비 줄이기 */
+  max-width: 300px;  
   width: 100%;
   gap: 0.5rem;
 }
@@ -387,13 +378,13 @@ aside {
 
 @media (max-width: 768px) {
   .header-actions {
-    flex-wrap: nowrap; /* 줄바꿈 방지 */
+    flex-wrap: nowrap; 
     justify-content: space-between;
     width: 100%;
   }
 
   .btn-circle {
-    flex-shrink: 0; /* 작아져도 줄어들지 않게 */
+    flex-shrink: 0; 
   }
 
   .search-box {
@@ -403,8 +394,7 @@ aside {
   }
 
   .search-box input[type="text"] {
-    width: 100%; /* 검색창은 남은 공간 꽉 채움 */
+    width: 100%; 
     min-width: 0;
   }
 }
-

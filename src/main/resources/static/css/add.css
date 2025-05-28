@@ -226,3 +226,404 @@ aside {
 .add-btn:hover {
   background-color: #333;
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  height: 100vh;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #fff;
+  color: #111;
+}
+
+/* Header */
+header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+}
+
+.header-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.header-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.header-nav a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  color: #333;
+  text-decoration: none;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Sidebar */
+aside {
+  grid-area: sidebar;
+  background: #f1f3f4;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.sidebar-subtitle {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #777;
+  margin: 1rem 0 0.5rem;
+}
+
+.nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #333;
+  gap: 0.5rem;
+}
+
+.nav-item.active {
+  background-color: #cfd8dc;
+}
+
+.nav-item :hover {
+  background: #cfd8dc;
+}
+
+.nav-item .material-icons {
+  font-size: 1rem;
+  color: #555;
+}
+
+.badge {
+  margin-left: auto;
+  background: #757575;
+  color: white;
+  font-size: 0.75rem;
+  padding: 0 0.5rem;
+  border-radius: 9999px;
+}
+
+/* Main */
+.container {
+  grid-area: main;
+  padding: 2rem;
+  overflow-y: auto;
+  background: white;
+}
+
+.container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* List */
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.list-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  padding: 1em 1.5rem 1em 1.5rem;
+  border-radius: 8px;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  gap: 1rem;
+}
+
+.storage-status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  color: white;
+  width: fit-content;
+}
+
+.storage-status.frozen {
+  background-color: #00bcd4;
+}
+
+.storage-status.refrigerated {
+  background-color: #4caf50;
+}
+
+.storage-status.ambient {
+  background-color: #ff9800;
+}
+
+.item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.item-text .name {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.item-text .expiry {
+  font-size: 0.75rem;
+  color: #777;
+}
+
+.list-item i.material-icons {
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+}
+
+.list-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.list-item.checked {
+  opacity: 0.6;
+}
+
+.item-text .support {
+  font-size: 0.7rem;
+  color: #e53935;
+  font-weight: 500;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-circle:hover {
+  background-color: #333;
+}
+
+.btn-circle .material-icons {
+  font-size: 24px;
+}
+
+/* 검색창 */
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  background-color: white;
+}
+
+.search-box input[type="text"] {
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: #333;
+  width: 150px;
+}
+
+.search-box .material-icons {
+  font-size: 20px;
+  color: #333;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  aside {
+    display: none;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .list-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .list-item > i.material-icons,
+  .list-item input[type="checkbox"],
+  .list-item i.material-icons:last-child {
+    justify-self: end;
+  }
+}
+@media (max-width: 768px) {
+  .list-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto; 
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .item-text {
+    min-width: 0;
+  }
+
+  .item-text .name,
+  .item-text .support {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .list-item i.material-icons,
+  .list-item input[type="checkbox"] {
+    justify-self: center;
+  }
+}
+.sidebar-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin: 0.5rem 0 1rem 0;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  aside {
+    display: none;
+    transition: all 0.3s ease;
+    background: #f1f3f4;
+    padding: 1rem;
+  }
+
+  aside.active {
+    display: block;
+  }
+}
+
+.header-actions {
+  display: flex;
+  justify-content: flex-start; 
+  padding-left: 1rem; 
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  padding: 0.25rem 0.5rem;
+  max-width: 300px;  
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.search-wrapper input[type="text"] {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: #333;
+  min-width: 0;
+}
+
+.search-wrapper .material-icons {
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+}
+
+.search-wrapper .btn-circle {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .container h2 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-actions {
+    flex-wrap: nowrap; 
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .btn-circle {
+    flex-shrink: 0; 
+  }
+
+  .search-box {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-box input[type="text"] {
+    width: 100%; 
+    min-width: 0;
+  }
+}
