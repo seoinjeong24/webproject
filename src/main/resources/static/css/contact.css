@@ -94,14 +94,11 @@ button:hover {
 }
 
 footer {
-  padding: 2rem 2rem;
-  background-color: #fff;
-  text-align: center;
-}
-
-footer div {
-  font-size: 1rem;
-  color: #333;
+  text-align: left;
+  padding: 2rem;
+  border-top: 1px solid #ccc;
+  font-size: 0.9rem;
+  color: #666;
 }
 
 @media (max-width: 768px) {
