@@ -65,9 +65,4 @@ public class PageController {
         return "managing";
     }
 
-//    @GetMapping("/")
-//    public String root() {
-//        return "index";
-//    }
-
 }

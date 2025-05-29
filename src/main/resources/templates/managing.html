@@ -14,15 +14,15 @@
         background: #cfd8dc;
       }
     </style>
+  </head>
+  <body>
     <script>
       const password = prompt("비밀번호를 입력하세요");
       if (password !== "test") {
         alert("접근할 수 없습니다.");
-        window.location.href = "/index";
+        window.location.href = "/listall";
       }
     </script>
-  </head>
-  <body>
     <header>
       <span class="header-title" onclick="navigateTo('/index.html')"
         ><img src="/logo.png" alt="FROOMIE"
