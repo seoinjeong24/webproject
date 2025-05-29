@@ -29,6 +29,10 @@ nav a {
   font-weight: 500;
 }
 
+nav a :hover {
+  cursor: pointer;
+}
+
 main {
   display: flex;
   justify-content: space-between;
@@ -86,6 +90,7 @@ main {
 
 .side-buttons button:hover {
   background: #444;
+  cursor: pointer;
 }
 
 .side-buttons button span {

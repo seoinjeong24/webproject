@@ -28,6 +28,10 @@ nav a {
   font-weight: 500;
 }
 
+nav a :hover {
+  cursor: pointer;
+}
+
 nav a.active {
   background-color: #333;
   color: #fff;

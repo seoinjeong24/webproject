@@ -39,6 +39,10 @@ nav a.active {
   color: #fff;
 }
 
+nav a :hover {
+  cursor: pointer;
+}
+
 main {
   padding: 3rem 2rem;
   gap: 4rem;
@@ -126,7 +130,8 @@ footer {
     padding: 0.5rem;
   }
 
-  h1, .page-title {
+  h1,
+  .page-title {
     font-size: 2rem;
     text-align: center;
   }
