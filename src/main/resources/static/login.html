@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>로그인</title>
-  <link rel="stylesheet" href="css/login.css" />
-</head>
+  <body>
+    <header>
+      <div class="logo" onclick="navigateTo('index.html')">
+        <img src="/logo.png" alt="FROOMIE" />
+      </div>
+      <nav>
+        <a onclick="navigateTo('main.html')">Main</a>
+        <a onclick="navigateTo('map.html')">Map</a>
+        <a onclick="navigateTo('mypage.html')">My Page</a>
+      </nav>
+    </header>
 
-<body>
-  <header>
-    <div class="logo" onclick="navigateTo('index.html')">Site name</div>
-    <nav>
-      <a onclick="navigateTo('main.html')">Main</a>
-      <a onclick="navigateTo('map.html')">Map</a>
-      <a onclick="navigateTo('mypage.html')">My Page</a>
-    </nav>
-  </header>
+    <main>
+      <div class="login-box">
+        <h1>Sign in</h1>
+        ID
 
-  <main>
-    <div class="login-box">
-      <h1>Sign in</h1>
-      ID
+        <input id="login-id" type="text" placeholder="Enter your id" />
+        Password
+        <input
+          id="login-password"
+          type="password"
+          placeholder="Enter your password"
+        />
+        <div id="signup" onclick="navigateTo('signup.html')">Sign up</div>
+        <button onclick="performLogin()">Sign in</button>
+      </div>
+    </main>
 
-      <input id="login-id" type="text" placeholder="Enter your id" />
-      Password
-      <input id="login-password" type="password" placeholder="Enter your password" />
-      <div id="signup" onclick="navigateTo('signup.html')">Sign up</div>
-      <button onclick="performLogin()">Sign in</button>
-    </div>
-  </main>
+    <footer>
+      <h2>ABOUT US</h2>
 
-  <footer>
-    <h2>ABOUT US</h2>
+      <span>Owner : 임유진, 정서인</span><br />
+      <span>Tel : 070-9999-9999 | E-mail : froomie@sookmyung.ac.kr</span><br />
+      <span
+        >Address : [04312] 서울특별시 용산구 청파로47길 100 숙명여자대학교</span
+      >
+    </footer>
 
-    <span>Owner : 임유진, 정서인</span><br>
-    <span>Tel : 070-4280-6389 | E-mail : froomie@sookmyung.ac.kr</span><br>
-    <span>Address : [04312] 서울특별시 용산구 청파로47길 100 숙명여자대학교</span>
-  </footer>
-
-  <script src="js/login.js"></script>
-</body>
-
+    <script src="js/login.js"></script>
+  </body>
 </html>

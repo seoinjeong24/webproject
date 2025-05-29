@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+img {
+  width: 200px;
+}
+
 .about-text h1 {
   font-size: 3rem;
   font-weight: bold;
@@ -20,11 +24,6 @@ header {
   align-items: center;
   padding: 1rem 2rem;
   border-bottom: 1px solid #ccc;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 nav a {

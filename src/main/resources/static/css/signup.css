@@ -12,13 +12,12 @@ header {
   border-bottom: 1px solid #ccc;
 }
 
-main {
-  margin-bottom: 20%;
+img {
+  width: 200px;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+main {
+  margin-bottom: 20%;
 }
 
 nav a {
