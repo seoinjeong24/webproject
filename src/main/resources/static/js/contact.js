@@ -3,11 +3,11 @@ function submitForm() {
   const message = document.getElementById("message").value.trim();
 
   if (!email || !message) {
-    alert("Please fill in both email and message.");
+    alert("메일 주소와 문의사항 입력란을 모두 채워주세요.");
     return;
   }
 
-  alert("Your message has been sent! Thank you for contacting us.");
+  alert("문의사항이 제출되었습니다.");
 
   document.getElementById("email").value = "";
   document.getElementById("message").value = "";
