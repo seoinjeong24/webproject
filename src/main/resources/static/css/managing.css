@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+img {
+  width: 170px;
+}
+
 body {
   display: grid;
   grid-template-columns: 280px 1fr;

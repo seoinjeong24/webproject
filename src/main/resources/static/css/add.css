@@ -17,6 +17,10 @@ body {
   color: #111;
 }
 
+img {
+  width: 170px;
+}
+
 /* Header */
 header {
   grid-area: header;
@@ -512,7 +516,7 @@ aside {
 @media (max-width: 768px) {
   .list-item {
     display: grid;
-    grid-template-columns: auto 1fr auto auto; 
+    grid-template-columns: auto 1fr auto auto;
     align-items: center;
     gap: 0.5rem;
     padding: 1rem;
@@ -563,8 +567,8 @@ aside {
 
 .header-actions {
   display: flex;
-  justify-content: flex-start; 
-  padding-left: 1rem; 
+  justify-content: flex-start;
+  padding-left: 1rem;
 }
 
 .search-wrapper {
@@ -574,7 +578,7 @@ aside {
   border-radius: 8px;
   background-color: white;
   padding: 0.25rem 0.5rem;
-  max-width: 300px;  
+  max-width: 300px;
   width: 100%;
   gap: 0.5rem;
 }
@@ -607,13 +611,13 @@ aside {
 
 @media (max-width: 768px) {
   .header-actions {
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
     justify-content: space-between;
     width: 100%;
   }
 
   .btn-circle {
-    flex-shrink: 0; 
+    flex-shrink: 0;
   }
 
   .search-box {
@@ -623,7 +627,7 @@ aside {
   }
 
   .search-box input[type="text"] {
-    width: 100%; 
+    width: 100%;
     min-width: 0;
   }
 }

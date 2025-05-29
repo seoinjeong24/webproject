@@ -4,6 +4,10 @@ body {
   background: #fff;
 }
 
+img {
+  width: 200px;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -15,11 +19,6 @@ header {
 .introduction {
   display: flex;
   flex-direction: column;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 nav a {

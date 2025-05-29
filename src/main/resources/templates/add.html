@@ -4,17 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1인 가구 식재료 관리</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/css/add.css" />
-
   </head>
   <body>
     <header>
-      <span class="header-title" onclick="navigateTo('/index.html')">Site name</span>
+      <span class="header-title" onclick="navigateTo('/index.html')"
+        ><img src="/logo.png" alt="FROOMIE"
+      /></span>
       <nav class="header-nav">
         <a onclick="navigateTo('/index.html')" data-section="main">Main</a>
         <a onclick="navigateTo('/map.html')" data-section="map">Map</a>
-        <a onclick="navigateTo('/mypage.html')" data-section="my-page">My Page</a>
+        <a onclick="navigateTo('/mypage.html')" data-section="my-page"
+          >My Page</a
+        >
       </nav>
       <div class="header-actions">
         <div class="btn-circle" data-section="add">
@@ -51,29 +57,17 @@
       <hr />
       <div class="sidebar-subtitle">Labels</div>
       <div class="nav-group">
-        <div
-          class="nav-item"
-          id="listall"
-          onclick="navigateTo('listall')"
-        >
+        <div class="nav-item" id="listall" onclick="navigateTo('listall')">
           <i class="material-icons">folder</i>전체 목록<span class="badge"
             >5</span
           >
         </div>
-        <div
-          class="nav-item"
-          id="ambient"
-          onclick="navigateTo('ambient')"
-        >
+        <div class="nav-item" id="ambient" onclick="navigateTo('ambient')">
           <i class="material-icons">schedule</i>소비기한 임박<span class="badge"
             >3</span
           >
         </div>
-        <div
-          class="nav-item"
-          id="bookmarks"
-          onclick="navigateTo('bookmarks')"
-        >
+        <div class="nav-item" id="bookmarks" onclick="navigateTo('bookmarks')">
           <i class="material-icons">folder</i>즐겨찾기<span class="badge"
             >2</span
           >
@@ -82,32 +76,20 @@
       <hr />
       <div class="sidebar-subtitle">Labels</div>
       <div class="nav-group">
-        <div
-          class="nav-item"
-          id="freeze"
-          onclick="navigateTo('freeze')"
-        >
+        <div class="nav-item" id="freeze" onclick="navigateTo('freeze')">
           <i class="material-icons">ac_unit</i>냉동<span class="badge">2</span>
         </div>
-        <div
-          class="nav-item"
-          id="fridge"
-          onclick="navigateTo('fridge')"
-        >
+        <div class="nav-item" id="fridge" onclick="navigateTo('fridge')">
           <i class="material-icons">kitchen</i>냉장<span class="badge">2</span>
         </div>
-        <div
-          class="nav-item"
-          id="expiring"
-          onclick="navigateTo('expiring')"
-        >
+        <div class="nav-item" id="expiring" onclick="navigateTo('expiring')">
           <i class="material-icons">wb_sunny</i>실온<span class="badge">1</span>
         </div>
       </div>
     </aside>
-    
+
     <div class="sidebar-toggle">
-    <i class="material-icons">menu</i>
+      <i class="material-icons">menu</i>
     </div>
     <div class="container">
       <h2>추가</h2>
@@ -136,6 +118,6 @@
       </div>
     </div>
 
-      <script src="/js/add.js"></script>
+    <script src="/js/add.js"></script>
   </body>
 </html>
