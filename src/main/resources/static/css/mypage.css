@@ -88,6 +88,16 @@ main {
   border: 1px solid #ccc;
 }
 
+.profile-info button {
+  background: #000;
+  color: #fff;
+  padding: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
 .menu {
   width: 75%;
 }
